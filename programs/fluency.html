@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Fluency & Özgüven — Cozy English</title>
+<link rel="icon" href="../cozy-favicon.png.png" type="image/png"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<style>
+.prog-hero{background:var(--primary);padding:5rem 2rem 4.5rem;position:relative;overflow:hidden;}
+.prog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(241,174,98,0.2) 0%,transparent 60%);}
+.prog-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+.prog-back{display:inline-flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:2rem;transition:color 0.2s;}
+.prog-back:hover{color:rgba(255,255,255,0.9);}
+.prog-tag{display:inline-block;background:rgba(241,174,98,0.2);color:var(--amber-light);font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1.25rem;}
+.prog-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.25rem,4vw,3.25rem);font-weight:600;color:#fff;line-height:1.12;margin-bottom:1rem;}
+.prog-hero p{font-size:1.0625rem;color:rgba(255,255,255,0.6);max-width:600px;line-height:1.8;}
+.prog-hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;}
+.prog-stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--amber-light);line-height:1;}
+.prog-stat-label{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:3px;}
+.content-section{padding:5rem 0;background:var(--white);}
+.content-section.alt{background:var(--pearl);}
+.content-inner{max-width:860px;margin:0 auto;padding:0 2rem;}
+.content-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,2.375rem);font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.5rem;}
+.content-inner p{font-size:1rem;line-height:1.9;color:var(--ink-light);margin-bottom:1.25rem;}
+.content-inner strong{color:var(--ink);font-weight:500;}
+.phase-list{list-style:none;counter-reset:phases;margin:2rem 0;}
+.phase-item{counter-increment:phases;display:grid;grid-template-columns:48px 1fr;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid var(--border);align-items:start;}
+.phase-item:last-child{border-bottom:none;}
+.phase-num{width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;flex-shrink:0;}
+.phase-item h4{font-size:0.9375rem;font-weight:500;color:var(--ink);margin-bottom:0.4rem;}
+.phase-item p{font-size:0.875rem;line-height:1.75;color:var(--ink-light);margin:0;}
+.callout{background:var(--primary);border-radius:14px;padding:2.5rem 3rem;text-align:center;margin:3rem 0;}
+.callout h3{font-family:'Cormorant Garamond',serif;font-size:1.625rem;font-weight:600;font-style:italic;color:#fff;margin-bottom:0.75rem;}
+.callout p{color:rgba(255,255,255,0.6);font-size:0.9375rem;line-height:1.7;margin-bottom:1.5rem;}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo-only">
+      <div class="logo-mark-lg"><img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" onerror="this.style.display='none'"/><span class="logo-fb-lg">C</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Ana Sayfa</a></li>
+      <li class="nav-dropdown">
+        <a href="../programs.html" class="nav-dropdown-toggle">Programlar ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="business.html">Business English</a>
+          <a href="conversational.html">Conversational &amp; Fluency</a>
+          <a href="travel.html">Travel &amp; International</a>
+          <a href="fluency.html">Fluency &amp; Özgüven</a>
+          <a href="overseas.html">Yurt Dışı Eğitim</a>
+        </div>
+      </li>
+      <li><a href="../about.html">Hakkımızda</a></li>
+      <li><a href="../community.html">Topluluk</a></li>
+      <li><a href="../contact.html">İletişim</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+      <a href="../contact.html" class="btn-nav">Ücretsiz Demo</a>
+      <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Ana Sayfa</a>
+  <a href="../programs.html">Programlar</a>
+  <a href="../about.html">Hakkımızda</a>
+  <a href="../community.html">Topluluk</a>
+  <a href="../contact.html">İletişim</a>
+  <div class="mobile-menu-bottom">
+    <a href="../contact.html" class="btn-primary">Ücretsiz Demo</a>
+    <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+  </div>
+</div>
+
+<div class="page-wrap">
+<div class="prog-hero">
+  <div class="prog-hero-inner">
+    <a href="../programs.html" class="prog-back">← Tüm Programlar</a>
+    <span class="prog-tag">Fluency & Özgüven İnşası</span>
+    <h1>Dili biliyorsunuz. Şimdi ona güvenin.</h1>
+    <p>Geçmişte kurs kursa dolaştınız ve hâlâ istediğiniz yerde değilsiniz. Sorun dil yeteneğiniz değil — doğru yöntemi bulmak. Bu program o yöntemi sunar.</p>
+    <div class="prog-hero-stats">
+      <div><div class="prog-stat-num">Psikoloji</div><div class="prog-stat-label">Destekli yaklaşım</div></div>
+      <div><div class="prog-stat-num">1:1</div><div class="prog-stat-label">Kişiye özel</div></div>
+      <div><div class="prog-stat-num">Gerçek</div><div class="prog-stat-label">Ölçülebilir sonuç</div></div>
+    </div>
+  </div>
+</div>
+<section class="content-section">
+  <div class="content-inner">
+    <h2>Neden "çok çalışmak" yetmiyor?</h2>
+    <p>Araştırmalar net: dil öğreniminde en büyük engel bilgi eksikliği değil, <strong>psikolojik bariyerler ve yanlış yöntem.</strong> Yıllarca gramer kitabı çözdüyseniz ve hâlâ konuşamıyorsanız, sorun siz değilsiniz — sorun sistemdir.</p>
+    <p>Fluency & Özgüven programı bu bariyerleri hedef alır. Beynin dil üretim sisteminin nasıl çalıştığını anlayan bir yaklaşımla, hem dil hem özgüven aynı anda inşa edilir.</p>
+    <h2>Program aşamaları</h2>
+    <ul class="phase-list">
+      <li class="phase-item"><div class="phase-num">1</div><div><h4>Teşhis: gerçek engeli bulmak</h4><p>Konuşma bazlı değerlendirmeyle nerede takıldığınız belirlenir. Kelime mi, gramer mi, özgüven mi, hız mı — gerçek sorun tespit edilir.</p></div></li>
+      <li class="phase-item"><div class="phase-num">2</div><div><h4>Psikolojik engelleri kırmak</h4><p>Hata korkusu, yargılanma kaygısı, "mükemmel cümle" baskısı — bunlar kanıtlanmış tekniklerle çözülür. Güvenli ortam, özgüven inşasının temelidir.</p></div></li>
+      <li class="phase-item"><div class="phase-num">3</div><div><h4>Aktif üretim pratiği</h4><p>Her dersin %80'i konuşmaya ayrılır. Dinlemek değil üretmek. Gerçek zamanlı, bağlamsal, yoğun pratik.</p></div></li>
+      <li class="phase-item"><div class="phase-num">4</div><div><h4>Hız ve akıcılık geliştirme</h4><p>"Türkçe düşün, İngilizce söyle" döngüsünü kırmak. Direkt İngilizce düşünme alışkanlığı kazandırma.</p></div></li>
+    </ul>
+    <div class="callout">
+      <h3>"İlk kez gerçekten ilerliyorum."</h3>
+      <p>Geçmiş kurslar işe yaramadıysa, yöntem sorundu. Cozy English'in bilim destekli yaklaşımıyla baştan başlayın.</p>
+      <a href="../contact.html" class="btn-amber">Demo Dersle Başla →</a>
+    </div>
+  </div>
+</section>
+</div>
+<footer><div class="footer-inner"><div class="footer-brand"><div class="footer-logo"><div style="margin-bottom:1rem;">
+        <div style="width:200px;overflow:hidden;display:flex;align-items:center;">
+          <img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" style="width:200px;height:auto;object-fit:contain;" onerror="this.style.display='none'"/>
+        </div>
+      </div></div><p>Nöropskoloji ve öğrenme psikolojisi temelli, birebir İngilizce eğitimi. Kozyatağı, Kadıköy.</p></div><div class="footer-col"><h4>Programlar</h4><ul><li><a href="business.html">Business English</a></li><li><a href="conversational.html">Conversational</a></li><li><a href="travel.html">Travel & International</a></li><li><a href="fluency.html">Fluency & Özgüven</a></li></ul></div><div class="footer-col"><h4>İletişim</h4><ul><li><a href="../contact.html">Demo Ders Ayarla</a></li><li><a href="https://wa.me/905318711374" target="_blank">WhatsApp</a></li></ul></div></div><div class="footer-bottom"><span>© 2025 Cozy English.</span><span>Kozyatağı, Kadıköy — İstanbul</span></div></footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

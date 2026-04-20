@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Yurt Dışı Eğitim Hazırlığı — Cozy English</title>
+<link rel="icon" href="../cozy-favicon.png.png" type="image/png"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<style>
+.prog-hero{background:var(--primary);padding:5rem 2rem 4.5rem;position:relative;overflow:hidden;}
+.prog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(241,174,98,0.2) 0%,transparent 60%);}
+.prog-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+.prog-back{display:inline-flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:2rem;transition:color 0.2s;}
+.prog-back:hover{color:rgba(255,255,255,0.9);}
+.prog-tag{display:inline-block;background:rgba(241,174,98,0.2);color:var(--amber-light);font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1.25rem;}
+.prog-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.25rem,4vw,3.25rem);font-weight:600;color:#fff;line-height:1.12;margin-bottom:1rem;}
+.prog-hero p{font-size:1.0625rem;color:rgba(255,255,255,0.6);max-width:600px;line-height:1.8;}
+.prog-hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;}
+.prog-stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--amber-light);line-height:1;}
+.prog-stat-label{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:3px;}
+.content-section{padding:5rem 0;background:var(--white);}
+.content-section.alt{background:var(--pearl);}
+.content-inner{max-width:860px;margin:0 auto;padding:0 2rem;}
+.content-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,2.375rem);font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.5rem;}
+.content-inner p{font-size:1rem;line-height:1.9;color:var(--ink-light);margin-bottom:1.25rem;}
+.content-inner strong{color:var(--ink);font-weight:500;}
+.track-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:2rem 0;}
+.track-card{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--primary);border-radius:12px;padding:1.5rem;}
+.track-card .icon{font-size:1.5rem;margin-bottom:0.875rem;}
+.track-card h4{font-size:0.9375rem;font-weight:500;color:var(--ink);margin-bottom:0.4rem;}
+.track-card p{font-size:0.85rem;line-height:1.7;color:var(--ink-light);margin:0;}
+.timeline{margin:2rem 0;counter-reset:steps;}
+.timeline-item{display:grid;grid-template-columns:56px 1fr;gap:1.5rem;margin-bottom:2rem;align-items:start;}
+.timeline-num{width:56px;height:56px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.375rem;font-weight:600;flex-shrink:0;}
+.timeline-item h4{font-size:0.9375rem;font-weight:500;color:var(--ink);margin-bottom:0.4rem;}
+.timeline-item p{font-size:0.875rem;line-height:1.75;color:var(--ink-light);margin:0;}
+.scenario-list{list-style:none;margin:1.5rem 0;}
+.scenario-list li{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);font-size:0.9375rem;color:var(--ink-light);line-height:1.7;}
+.scenario-list li:last-child{border-bottom:none;}
+.scenario-list li::before{content:'→';color:var(--amber);flex-shrink:0;font-weight:500;margin-top:2px;}
+.callout{background:var(--primary);border-radius:14px;padding:2.5rem 3rem;text-align:center;margin:3rem 0;}
+.callout h3{font-family:'Cormorant Garamond',serif;font-size:1.625rem;font-weight:600;font-style:italic;color:#fff;margin-bottom:0.75rem;}
+.callout p{color:rgba(255,255,255,0.6);font-size:0.9375rem;line-height:1.7;margin-bottom:1.5rem;}
+@media(max-width:700px){.track-grid{grid-template-columns:1fr;}.timeline-item{grid-template-columns:44px 1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo-only">
+      <div class="logo-mark-lg"><img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" onerror="this.style.display='none'"/><span class="logo-fb-lg">C</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Ana Sayfa</a></li>
+      <li class="nav-dropdown">
+        <a href="../programs.html" class="nav-dropdown-toggle">Programlar ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="business.html">Business English</a>
+          <a href="conversational.html">Conversational &amp; Fluency</a>
+          <a href="travel.html">Travel &amp; International</a>
+          <a href="overseas.html">Yurt Dışı Eğitim</a>
+          <a href="fluency.html">Fluency &amp; Özgüven</a>
+          <a href="overseas.html">Yurt Dışı Eğitim</a>
+        </div>
+      </li>
+      <li><a href="../about.html">Hakkımızda</a></li>
+      <li><a href="../community.html">Topluluk</a></li>
+      <li><a href="../contact.html">İletişim</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+      <a href="../contact.html" class="btn-nav">Ücretsiz Demo</a>
+      <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Ana Sayfa</a>
+  <a href="../programs.html">Programlar</a>
+  <a href="../about.html">Hakkımızda</a>
+  <a href="../community.html">Topluluk</a>
+  <a href="../contact.html">İletişim</a>
+  <div class="mobile-menu-bottom">
+    <a href="../contact.html" class="btn-primary">Ücretsiz Demo</a>
+    <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+  </div>
+</div>
+
+<div class="page-wrap">
+<div class="prog-hero">
+  <div class="prog-hero-inner">
+    <a href="../programs.html" class="prog-back">← Tüm Programlar</a>
+    <span class="prog-tag">Yurt Dışı Eğitim Hazırlığı</span>
+    <h1>Boarding school, üniversite, kariyer — her adımda hazır.</h1>
+    <p>İngilizce eğitim hedefleriniz için birebir, odaklı hazırlık. Mülakattan akademik yazıya, özgüvenden kültürel uyuma — eksiksiz bir program.</p>
+    <div class="prog-hero-stats">
+      <div><div class="prog-stat-num">3</div><div class="prog-stat-label">Hazırlık rotası</div></div>
+      <div><div class="prog-stat-num">1:1</div><div class="prog-stat-label">Kişiye özel program</div></div>
+      <div><div class="prog-stat-num">8 hafta</div><div class="prog-stat-label">Önerilen hazırlık süresi</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="content-section">
+  <div class="content-inner">
+    <h2>Hangi hedefe hazırlanıyorsunuz?</h2>
+    <p>Yurt dışı eğitim hazırlığı tek bir profil değil — üç farklı yol. Program, tam olarak hangi hedefte olduğunuza göre şekillendirilir.</p>
+    <div class="track-grid">
+      <div class="track-card">
+        <div class="icon">🏫</div>
+        <h4>Boarding School</h4>
+        <p>İngiliz yatılı okulu başvurusu ve mülakat hazırlığı. 13–18 yaş arası öğrenciler için odaklı program.</p>
+      </div>
+      <div class="track-card">
+        <div class="icon">🎓</div>
+        <h4>Yurt Dışı Üniversite</h4>
+        <p>Başvuru sürecinden akademik İngilizceye, essay yazımından görüşme hazırlığına.</p>
+      </div>
+      <div class="track-card">
+        <div class="icon">💼</div>
+        <h4>Uluslararası Kariyer</h4>
+        <p>Yurt dışında çalışmayı hedefleyenler için iş İngilizcesi ve kültürel uyum odaklı hazırlık.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section alt">
+  <div class="content-inner">
+    <h2>Boarding School Mülakatı — Adım Adım Hazırlık</h2>
+    <p>İngiliz yatılı okul mülakatları Türk aileler için sıkça beklenmedik bir engel haline gelir. Akademik yeterlilik tek başına yetmez — <strong>dil özgüveni, düşünürken konuşma becerisi ve İngiliz okul kültürü</strong> belirleyicidir.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-num">1</div>
+        <div>
+          <h4>Teşhis ve seviye belirleme</h4>
+          <p>Konuşma bazlı değerlendirmeyle mevcut dil seviyesi ve özgüven profili çıkarılır. Eksikler belirlenir, 8 haftalık yol haritası oluşturulur.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">2</div>
+        <div>
+          <h4>Kişisel anlatı geliştirme</h4>
+          <p>"Tell me about yourself" sorusunu güçlü yanıtlamak için özgün bir anlatı çerçevesi oluşturulur. İlgi alanları, değerler ve hedefler İngilizce olarak yapılandırılır.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">3</div>
+        <div>
+          <h4>Critical thinking dili</h4>
+          <p>İngiliz okul mülakatçılarının en çok değerlendirdiği alan: düşünürken konuşmak. "Let me consider that…", "On one hand… on the other…" gibi yapılar içselleştirilir.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">4</div>
+        <div>
+          <h4>Tam simülasyon mülakatları</h4>
+          <p>Gerçek mülakat formatında — zaman baskısıyla, yabancı bir yüze karşı — tam simülasyonlar yapılır. Detaylı geri bildirim verilir.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="content-inner">
+    <h2>Mülakatyı geçecek dil kalıpları</h2>
+    <p>Mülakatçıların doğru cevabı değil, düşünme kalitesini ve iletişim tarzını değerlendirdiğini unutmayın.</p>
+    <ul class="scenario-list">
+      <li>Kişisel anlatı: "I've always been drawn to…" ve "One experience that shaped me was…"</li>
+      <li>Görüş bildirme: "I believe… because…" ve "From my perspective…"</li>
+      <li>Zaman kazanma: "That's an interesting question — let me think about it for a moment."</li>
+      <li>Karşıt görüş kabul: "I see the merit in that, though I'd also consider…"</li>
+      <li>Akademik tartışma: "The evidence suggests…" ve "One could argue that…"</li>
+      <li>Soru sormak: "Could you elaborate on…?" ve "I'd love to know more about…"</li>
+    </ul>
+    <div class="callout">
+      <h3>"Doğru hazırlık farkı ortadan kaldırır."</h3>
+      <p>Yurt dışı eğitim hedefleriniz için 8 haftalık kişisel hazırlık programı. İlk adım ücretsiz demo dersiyle başlar.</p>
+      <a href="../contact.html" class="btn-amber">Ücretsiz Demo Ders Al →</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="margin-bottom:1rem;">
+        <div style="width:200px;overflow:hidden;display:flex;align-items:center;">
+          <img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" style="width:200px;height:auto;object-fit:contain;" onerror="this.style.display='none'"/>
+        </div>
+      </div>
+      <p>Nöropskoloji ve öğrenme psikolojisi temelli, birebir İngilizce eğitimi. Kozyatağı, Kadıköy.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programlar</h4>
+      <ul>
+        <li><a href="business.html">Business English</a></li>
+        <li><a href="conversational.html">Conversational</a></li>
+        <li><a href="travel.html">Travel &amp; International</a></li>
+        <li><a href="overseas.html">Yurt Dışı Eğitim</a></li>
+        <li><a href="fluency.html">Fluency &amp; Özgüven</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>İletişim</h4>
+      <ul>
+        <li><a href="../contact.html">Demo Ders Ayarla</a></li>
+        <li><a href="https://wa.me/905318711374" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Cozy English.</span>
+    <span>Kozyatağı, Kadıköy — İstanbul</span>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
