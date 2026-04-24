@@ -233,14 +233,96 @@ function initMethodPills() {
 }
 
 const METHOD_EXPLANATIONS = {
-  tbl:  { title: 'Task-Based Learning', body: '<p>Görev Temelli Öğrenme. Bu yaklaşım, dil becerilerini gerçek dünya görevleri üzerinden geliştirerek motivasyonu ve bilgiyi içselleştirmeyi artırır. Öğrencilerimiz rol yapma ve proje tabanlı aktivitelerle dili sadece öğrenmekle kalmaz, anlamlı bağlamlarda kullanmayı da deneyimler</p>' },
-  ibi:  { title: 'Input-Based Instruction', body: '<p>Beyin anlaşılabilir girdi yoluyla dili edinir. Seviyenizin hemen üzerinde içerikle maruz kalmak, gramer kurallarını ezberlemekten çok daha güçlü bir temel oluşturur.</p>' },
-  ecrif:{ title: 'ECRIF Framework', body: '<p>Encounter → Clarify → Remember → Internalize → Fluently Use. Her yeni dil unsuru önce doğal bir bağlamda karşılaşılır, sonra netleştirilir, ardından pekiştirilir ve en son akıcı kullanıma geçilir.</p>' },
-  pi:   { title: 'Processing Instruction', body: '<p>Gramer öğretiminde öğrencinin dikkatini form-anlam bağlantısına yönlendiren yapılandırılmış yaklaşım. Anlamlı bağlamlarda defalarca "işlemek" beyinde kalıcı bağlantılar oluşturur.</p>' },
-  clt:  { title: 'Communicative Language Teaching', body: '<p>Dilin iletişim için öğrenildiği ilkesine dayanan yaklaşımda dersin %70-80\'i gerçek iletişim etkinliklerine ayrılır. Gramer ihtiyaç duyulduğu anda öğretilir.</p>' },
-  sr:   { title: 'Strategic Repetition', body: '<p>Spaced repetition bilimine dayalı strateji. Beyin, tam unutmak üzereyken yapılan tekrarda en güçlü hafıza izini oluşturur.</p>' },
-  ctx:  { title: 'Contextual Teaching', body: '<p>Kelimeler asla izole biçimde öğretilmez. Araştırmalar bağlamsal öğrenmenin kelime kalıcılığını %60\'a kadar artırdığını gösteriyor.</p>' },
-  ie:   { title: 'Input Enhancement', body: '<p>Öğrenilmesi gereken dil yapıları doğal bağlamda görsel veya sözlü olarak ön plana çıkarılır. Farkındalık olmadan kazanım mümkün değildir.</p>' },
+  tbl: {
+    title: 'Task-Based Learning',
+    body: `
+      <p>
+        Görev Temelli Öğrenme.<br><br>
+        Dil, gerçek hayat görevleri üzerinden kullanıldığında en doğal şekilde gelişir. Bu yaklaşımda öğrenciler rol yapma ve proje tabanlı aktivitelerle dili sadece öğrenmez — <strong>aktif olarak kullanır.</strong><br><br>
+        Amaç ezber değil, anlamlı kullanım ve konuşma özgüvenidir.
+      </p>
+    `
+  },
+
+  ibi: {
+    title: 'Input-Based Instruction',
+    body: `
+      <p>
+        Girdi Temelli Öğrenme.<br><br>
+        Dil, kuralları ezberleyerek değil, anlaşılabilir içeriklere maruz kalarak edinilir.<br><br>
+        Seviyene uygun ama biraz ileri içerikler sayesinde beynin dili doğal olarak çözmeye başlar. Zamanla gramer düşünmeden oturur — <strong>zorlanmadan öğrenme gerçekleşir.</strong>
+      </p>
+    `
+  },
+
+  ecrif: {
+    title: 'ECRIF Framework',
+    body: `
+      <p>
+        Encounter → Clarify → Remember → Internalize → Fluently Use<br><br>
+        Her yeni dil yapısı önce doğal bir bağlamda karşılaşılır, sonra anlaşılır hale getirilir, tekrarlarla güçlendirilir ve en sonunda akıcı kullanıma dönüşür.<br><br>
+        Bu süreç, öğrenmeyi rastgele değil <strong>adım adım ilerleyen bir dönüşüm yolculuğuna</strong> çevirir.
+      </p>
+    `
+  },
+
+  pi: {
+    title: 'Processing Instruction',
+    body: `
+      <p>
+        Gramer Öğrenme Yaklaşımı.<br><br>
+        Öğrencinin dikkatini form ve anlam arasındaki ilişkiye yönlendirir. Amaç ezber değil, doğru yapıyı doğru bağlamda fark etmektir.<br><br>
+        Tekrar eden anlamlı kullanım sayesinde gramer, zamanla doğal bir refleks haline gelir.
+      </p>
+    `
+  },
+
+  clt: {
+    title: 'Communicative Language Teaching',
+    body: `
+      <p>
+        İletişim Odaklı Öğrenme.<br><br>
+        Dilin amacı iletişimdir — bu yüzden dersin büyük kısmı gerçek konuşma aktiviteleri üzerine kurulur.<br><br>
+        Rol yapma, tartışma ve problem çözme ile öğrenci dili “çalışmaz”, <strong>kullanmaya başlar.</strong><br><br>
+        Hata yapmak ise sürecin doğal bir parçasıdır.
+      </p>
+    `
+  },
+
+  sr: {
+    title: 'Strategic Repetition',
+    body: `
+      <p>
+        Stratejik Tekrar (Aralıklı Öğrenme).<br><br>
+        Beyin bilgiyi en iyi unutmaya yakınken öğrenir. Bu yüzden tekrarlar doğru zamanda yapılır.<br><br>
+        Bu yöntem sayesinde bilgi ezberlenmez — <strong>kalıcı hale gelir.</strong><br><br>
+        Unutmak burada bir hata değil, öğrenmenin bir parçasıdır.
+      </p>
+    `
+  },
+
+  ctx: {
+    title: 'Contextual Teaching',
+    body: `
+      <p>
+        Bağlam Temelli Öğrenme.<br><br>
+        Kelimeler tek başına değil, anlamlı cümleler ve gerçek durumlar içinde öğretilir.<br><br>
+        Bu yöntem, kelime öğrenimini daha doğal ve kalıcı hale getirir — çünkü beyin bağlamı hatırlar, listeyi değil.
+      </p>
+    `
+  },
+
+  ie: {
+    title: 'Input Enhancement',
+    body: `
+      <p>
+        Dil Farkındalık Tekniği.<br><br>
+        Öğrenilmesi hedeflenen yapılar doğal içerik içinde daha görünür hale getirilir.<br><br>
+        Amaç zorlamak değil — <strong>dilin fark edilmesini sağlamak</strong>tır.<br><br>
+        Farkındalık arttıkça öğrenme hızlanır ve kalıcılık güçlenir.
+      </p>
+    `
+  },
 };
 
 // ── COMMUNITY TABS ────────────────────────────────────────────────────────────
