@@ -259,7 +259,7 @@ const METHOD_EXPLANATIONS = {
     title: 'ECRIF Framework',
     body: `
       <p>
-        Encounter → Clarify → Remember → Internalize → Fluently Use<br><br>
+        Karşılaş → Netleştir → Hatırla → İçselleştir → Akıcı Kullan<br><br>
         Her yeni dil yapısı önce doğal bir bağlamda karşılaşılır, sonra anlaşılır hale getirilir, tekrarlarla güçlendirilir ve en sonunda akıcı kullanıma dönüşür.<br><br>
         Bu süreç, öğrenmeyi rastgele değil <strong>adım adım ilerleyen bir dönüşüm yolculuğuna</strong> çevirir.
       </p>
