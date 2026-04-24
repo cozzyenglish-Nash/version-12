@@ -233,8 +233,7 @@ function initMethodPills() {
 }
 
 const METHOD_EXPLANATIONS = {
-  tbl:  { title: 'Task-Based Learning', body: '<p>Görev Temelli Öğrenme
-Bu yaklaşım, dil becerilerini gerçek dünya görevleri üzerinden geliştirerek motivasyonu ve bilgiyi içselleştirmeyi artırır. Öğrencilerimiz rol yapma ve proje tabanlı aktivitelerle dili sadece öğrenmekle kalmaz, anlamlı bağlamlarda kullanmayı da deneyimler</p>' },
+  tbl:  { title: 'Task-Based Learning', body: '<p>Görev Temelli Öğrenme. Bu yaklaşım, dil becerilerini gerçek dünya görevleri üzerinden geliştirerek motivasyonu ve bilgiyi içselleştirmeyi artırır. Öğrencilerimiz rol yapma ve proje tabanlı aktivitelerle dili sadece öğrenmekle kalmaz, anlamlı bağlamlarda kullanmayı da deneyimler</p>' },
   ibi:  { title: 'Input-Based Instruction', body: '<p>Beyin anlaşılabilir girdi yoluyla dili edinir. Seviyenizin hemen üzerinde içerikle maruz kalmak, gramer kurallarını ezberlemekten çok daha güçlü bir temel oluşturur.</p>' },
   ecrif:{ title: 'ECRIF Framework', body: '<p>Encounter → Clarify → Remember → Internalize → Fluently Use. Her yeni dil unsuru önce doğal bir bağlamda karşılaşılır, sonra netleştirilir, ardından pekiştirilir ve en son akıcı kullanıma geçilir.</p>' },
   pi:   { title: 'Processing Instruction', body: '<p>Gramer öğretiminde öğrencinin dikkatini form-anlam bağlantısına yönlendiren yapılandırılmış yaklaşım. Anlamlı bağlamlarda defalarca "işlemek" beyinde kalıcı bağlantılar oluşturur.</p>' },
