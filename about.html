@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Hakkımızda — Cozy English</title>
+<link rel="icon" href="cozy-favicon.png.png" type="image/png"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.about-hero{padding:5rem 2rem 0;background:var(--white);}
+.about-hero-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;padding-bottom:5rem;border-bottom:1px solid var(--border);}
+.about-eyebrow{font-size:0.6875rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem;display:block;}
+.about-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.25rem,3.5vw,3.25rem);font-weight:600;line-height:1.12;color:var(--ink);letter-spacing:-0.02em;margin-bottom:1.5rem;}
+.about-hero h1 em{font-style:italic;color:var(--primary);}
+.about-lead{font-size:1.0625rem;line-height:1.85;color:var(--ink-light);margin-bottom:1.5rem;}
+.credential-row{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.5rem;}
+.cred-tag{background:var(--primary-pale);color:var(--primary);border:1px solid var(--border);border-radius:20px;font-size:0.8125rem;font-weight:500;padding:5px 14px;transition:all 0.2s;}
+.cred-tag:hover{background:var(--primary);color:var(--white);}
+.about-photo-wrap{position:sticky;top:88px;}
+.about-photo{background:var(--primary);border-radius:16px;aspect-ratio:4/5;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.photo-initials{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.15);margin-bottom:1rem;}
+.photo-note{font-size:0.8125rem;color:rgba(255,255,255,0.25);text-align:center;padding:0 2rem;line-height:1.6;}
+.about-caption{margin-top:1.25rem;font-size:0.8125rem;color:var(--ink-light);text-align:center;}
+.story-section{padding:6rem 0;background:var(--white);}
+.story-inner{max-width:780px;margin:0 auto;}
+.story-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.875rem,3vw,2.5rem);font-weight:600;color:var(--ink);line-height:1.15;text-align:center;margin-bottom:3.5rem;}
+.story-block{display:grid;grid-template-columns:3px 1fr;gap:2.25rem;margin-bottom:3rem;}
+.story-line{background:linear-gradient(to bottom,var(--amber),var(--primary));border-radius:2px;}
+.story-text{font-size:1rem;line-height:1.9;color:var(--ink-light);}
+.story-text strong{color:var(--ink);font-weight:500;}
+.edge-section{padding:6rem 0;background:var(--pearl);}
+.edge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+.edge-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:2.25rem;display:grid;grid-template-columns:52px 1fr;gap:1.25rem;align-items:start;transition:all 0.3s;position:relative;overflow:hidden;}
+.edge-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--primary),var(--amber));transform:scaleX(0);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);}
+.edge-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-md);transform:translateY(-3px);}
+.edge-card:hover::after{transform:scaleX(1);}
+.edge-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:400;font-style:italic;color:var(--amber);opacity:0.4;line-height:1;}
+.edge-card h4{font-size:0.9375rem;font-weight:500;color:var(--ink);margin-bottom:0.5rem;}
+.edge-card p{font-size:0.875rem;line-height:1.75;color:var(--ink-light);}
+.values-section{padding:6rem 0;background:var(--primary);position:relative;overflow:hidden;}
+.values-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(241,174,98,0.15) 0%,transparent 60%);}
+.values-inner{position:relative;z-index:1;}
+.values-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.875rem,3vw,2.5rem);font-weight:600;font-style:italic;color:var(--white);text-align:center;margin-bottom:3.5rem;}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.value-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:2rem 1.75rem;transition:all 0.3s;}
+.value-card:hover{background:rgba(255,255,255,0.12);border-color:rgba(241,174,98,0.4);transform:translateY(-3px);}
+.value-icon{font-size:1.5rem;margin-bottom:1rem;}
+.value-card h4{font-size:0.9375rem;font-weight:500;color:rgba(255,255,255,0.9);margin-bottom:0.5rem;}
+.value-card p{font-size:0.8125rem;line-height:1.75;color:rgba(255,255,255,0.45);}
+.notfor-section{padding:6rem 0;background:var(--white);}
+.notfor-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.notfor-inner h2{font-family:'Cormorant Garamond',serif;font-size:2.125rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.25rem;}
+.notfor-inner>div>p{font-size:0.9375rem;line-height:1.8;color:var(--ink-light);margin-bottom:1.5rem;}
+.notfor-list,.for-list{list-style:none;}
+.notfor-list li,.for-list li{font-size:0.9rem;color:var(--ink-mid);padding:10px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:12px;}
+.notfor-list li:last-child,.for-list li:last-child{border-bottom:none;}
+.x{color:#c0392b;flex-shrink:0;margin-top:2px;}
+.check{color:var(--primary);flex-shrink:0;margin-top:2px;}
+@media(max-width:900px){.about-hero-inner,.notfor-inner{grid-template-columns:1fr;gap:2.5rem;}.about-photo-wrap{position:static;}.edge-grid,.values-grid{grid-template-columns:1fr;}}
+.method-strip{background:var(--primary-pale);border:1px solid var(--border);border-left:4px solid var(--primary);border-radius:12px;padding:2.75rem 3rem;display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;}
+.method-strip h3{font-family:'Cormorant Garamond',serif;font-size:1.625rem;font-weight:600;color:var(--ink);line-height:1.3;}
+.method-strip h3 em{font-style:italic;color:var(--primary);}
+.method-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.pill{background:var(--white);border:1px solid rgba(0,58,102,0.2);border-radius:20px;padding:5px 14px;font-size:0.8125rem;color:var(--primary);font-weight:500;transition:all 0.2s;cursor:pointer;}
+.pill:hover{background:var(--primary);color:var(--white);}
+@media(max-width:900px){.method-strip{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo-only">
+      <div class="logo-mark-lg"><img class="logo-img-slot" src="cozy-favicon.png.png" alt="Cozy English" onerror="this.style.display='none'"/><span class="logo-fb-lg">C</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li class="nav-dropdown">
+        <a href="programs.html" class="nav-dropdown-toggle">Programlar ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="programs/business.html">Business English</a>
+          <a href="programs/conversational.html">Conversational &amp; Fluency</a>
+          <a href="programs/travel.html">Travel &amp; International</a>
+          <a href="programs/fluency.html">Fluency &amp; Özgüven</a>
+          <a href="programs/overseas.html">Yurt Dışı Eğitim</a>
+        </div>
+      </li>
+      <li><a href="about.html">Hakkımızda</a></li>
+      <li><a href="community.html">Topluluk</a></li>
+      <li><a href="contact.html">İletişim</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+      <a href="contact.html" class="btn-nav">Ücretsiz Demo</a>
+      <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Ana Sayfa</a>
+  <a href="programs.html">Programlar</a>
+  <a href="about.html">Hakkımızda</a>
+  <a href="community.html">Topluluk</a>
+  <a href="contact.html">İletişim</a>
+  <div class="mobile-menu-bottom">
+    <a href="contact.html" class="btn-primary">Ücretsiz Demo</a>
+    <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+  </div>
+</div>
+
+<div class="page-wrap">
+<section class="about-hero"><div class="about-hero-inner">
+  <div class="reveal"><span class="about-eyebrow">Eğitmen & Kurucu</span><h1>İngilizceyi içeriden <em>ve</em> dışarıdan bilen biri.</h1><p class="about-lead">Anadili İngilizce olan ve 7+ yıldır İstanbul'da yaşayan, Türkçe'yi mesleki düzeyde konuşan bir eğitmen olarak öğrencilerimin nerede takıldığını tam olarak anlıyorum — dil transferleri, yaygın hatalar, kültürel nüanslar dahil.</p><p class="about-lead">Bölümümden birinci olarak mezun oldum. Öğrenme psikolojisi ve nöropskoloji üzerine derin bir ilgim var. Her metodoloji kararının arkasında araştırma vardır.</p><div class="credential-row"><span class="cred-tag">Anadil İngilizce</span><span class="cred-tag">Türkçe B2+</span><span class="cred-tag">İstanbul, 7+ yıl</span><span class="cred-tag">Öğrenme psikolojisi</span></div></div>
+  <div class="about-photo-wrap reveal reveal-delay-2"><div class="about-photo" style="position:relative;"><div class="geo-grid-overlay" style="border-radius:16px;"></div><div class="geo-circle" style="width:200px;height:200px;bottom:-40px;right:-40px;border-color:rgba(241,174,98,0.2);"></div><div class="geo-square" style="width:24px;height:24px;top:20px;left:20px;transform:rotate(10deg);"></div><div class="photo-initials">CE</div><p class="photo-note">Fotoğraf yakında eklenecek</p></div><p class="about-caption">Nash Hago</p></div>
+</div></section>
+<section class="story-section"><div class="container"><div class="story-inner">
+  <span class="section-label" style="text-align:center;display:block;">Hikaye</span>
+  <h2 class="reveal">Neden bu okulu kurdum?</h2>
+  <div class="story-block reveal"><div class="story-line"></div><p class="story-text">Kariyerime <strong>işe alım ve insan kaynakları</strong> alanında başladım. Uluslararası müşterilerle çalışırken fark ettim: Özgeçmişinde "C1 seviyesi İngilizce" yazan pek çok aday, kendini rahat ifade etmekte zorlanıyordu. <strong>Nitelikli insanlar, tek bir dil engeli yüzünden hayallerindeki pozisyonlara ulaşamıyordu.</strong></p></div>
+  <div class="story-block reveal"><div class="story-line"></div><p class="story-text">Bu gözlem beni harekete geçirdi ve İngilizce öğretimine geçiş yaptım. Birçok farklı kurumda ders verdim — ve orada da görüldü: <strong>mevcut müfredatların büyük çoğunluğu gerçek hayatta kullanılamayan, yapay bilgiler üretiyor.</strong></p></div>
+  <div class="story-block reveal"><div class="story-line"></div><p class="story-text">O kurslarda kendi materyallerimi ve yöntemimi test etmeye başladım. <strong>Öğrencilerdeki dönüşümü gördüğümde</strong> — Cozy English'i kurmaya karar verdim.</p></div>
+</div></div></section>  
+<section class="edge-section"><div class="container">
+  <div class="section-header reveal"><span class="section-label">Rekabet avantajı</span><h2 class="section-title">Türkçe konuşanlar için özel avantaj</h2></div>
+  <div class="edge-grid">
+    <div class="edge-card reveal reveal-delay-1"><div class="edge-num">01</div><div><h4>Türkçe dil transferini anlıyorum</h4><p>Yaygın çeviri hataları, sözdizimi karışıklıkları, telaffuz tuzakları — hepsini öngörüp önlüyorum.</p></div></div>
+    <div class="edge-card reveal reveal-delay-2"><div class="edge-num">02</div><div><h4>Kültürel bağlamı hesaba katıyorum</h4><p>Türk iş kültürü ile uluslararası iş etiği arasındaki ince farkları biliyorum.</p></div></div>
+    <div class="edge-card reveal reveal-delay-3"><div class="edge-num">03</div><div><h4>Gerçek anlamda iki dilli içerik</h4><p>İçerik ve ödevler Türkçe konuşanlar için bilinçli olarak tasarlandı.</p></div></div>
+    <div class="edge-card reveal reveal-delay-4"><div class="edge-num">04</div><div><h4>Özgüven psikolojisini biliyorum</h4><p>Güvenli ve rahat bir ortamda hem dil hem özgüven gelişimi sağlıyorum.</p></div></div>
+  </div>
+</div></section>
+<section class="values-section" style="position:relative;overflow:hidden;"><div class="geo-dot-grid"></div><div class="geo-cross" style="top:10%;right:5%;width:28px;height:28px;opacity:0.3;"></div><div class="geo-cross" style="bottom:15%;left:4%;width:20px;height:20px;opacity:0.25;"></div><div class="container values-inner">
+  <span class="section-label" style="color:var(--amber-light);text-align:center;">Değerlerimiz</span>
+  <h2 class="reveal">Cozy English'in temel ilkeleri</h2>
+  <div class="values-grid">
+    <div class="value-card reveal reveal-delay-1"><div class="value-icon">🔬</div><h4>Araştırma önce gelir</h4><p>Her yöntem, her alıştırma, her içerik kararı pedagojik araştırmaya dayanır.</p></div>
+    <div class="value-card reveal reveal-delay-2"><div class="value-icon">🤝</div><h4>Öğrenci odaklı ortaklık</h4><p>Partner ilişkisi. Sizin hedefiniz bizim hedefimiz.</p></div>
+    <div class="value-card reveal reveal-delay-3"><div class="value-icon">🌿</div><h4>Konfüzyon yok, baskı yok</h4><p>Öğrenme süreci güvenli, rahat ve net olmalı.</p></div>
+    <div class="value-card reveal reveal-delay-1"><div class="value-icon">📈</div><h4>Gerçek hayat uygulaması</h4><p>Sınıfta öğrendiğiniz, sınıfın dışında işe yaramalı.</p></div>
+    <div class="value-card reveal reveal-delay-2"><div class="value-icon">💎</div><h4>Kalite, taahhüt gerektirir</h4><p>Gerçek ilerleme iki tarafın da çaba göstermesini gerektirir.</p></div>
+    <div class="value-card reveal reveal-delay-3"><div class="value-icon">🧠</div><h4>Özgüven de hedefimiz</h4><p>İngilizce'yi özgüvenle kullanmak, eğitimin ayrılmaz parçasıdır.</p></div>
+  </div>
+</div></section>
+<section class="notfor-section"><div class="container"><div class="notfor-inner">
+  <div class="reveal"><h2>Bu program sizin için <em style="font-style:italic;color:var(--primary);">değil</em> eğer…</h2><p>Herkes için değil — ve bu kasıtlı bir tercih.</p><ul class="notfor-list"><li><span class="x">✕</span><span>Dil öğrenmek için gereken çabayı anlamıyorsanız</span></li><li><span class="x">✕</span><span>Tüm sorumluluğun öğretmene ait olduğunu düşünüyorsanız</span></li><li><span class="x">✕</span><span>Son dakika iptallerini olağan görüyorsanız</span></li><li><span class="x">✕</span><span>Hızlı ve kolay bir "hack" arıyorsanız</span></li></ul></div>
+  <div class="reveal reveal-delay-2"><h2>Tam size göre eğer…</h2><p>Hedefinize ulaşmak için doğru desteğe ihtiyaç duyuyorsanız.</p><ul class="for-list"><li><span class="check">✓</span><span>Disiplinli bir programa hazırsanız</span></li><li><span class="check">✓</span><span>Gerçek hayatta kullanabileceğiniz İngilizce istiyorsanız</span></li><li><span class="check">✓</span><span>Geçmiş kurslar fayda sağlamadıysa</span></li><li><span class="check">✓</span><span>Hem bilginizi hem özgüveninizi geliştirmek istiyorsanız</span></li></ul><div style="margin-top:2.5rem;"><a href="contact.html" class="btn-primary">Demo Derse Başvur →</a></div></div>
+</div></div></section>
+</div>
+<footer><div class="footer-inner"><div class="footer-brand"><div style="margin-bottom:1rem;">
+        <div style="width:200px;overflow:hidden;display:flex;align-items:center;">
+          <img class="logo-img-slot" src="cozy-favicon.png.png" alt="Cozy English" style="width:200px;height:auto;object-fit:contain;" onerror="this.style.display='none'"/>
+        </div>
+      </div><p>Nöropskoloji ve öğrenme psikolojisi temelli, birebir İngilizce eğitimi.</p></div><div class="footer-col"><h4>Sayfalar</h4><ul><li><a href="index.html">Ana Sayfa</a></li><li class="nav-dropdown"><a href="programs.html" class="nav-dropdown-toggle">Programlar ▾</a><div class="nav-dropdown-menu"><a href="programs/business.html">Business English</a><a href="programs/conversational.html">Conversational &amp; Fluency</a><a href="programs/travel.html">Travel &amp; International</a><a href="programs/fluency.html">Fluency &amp; Özgüven</a></div></li><li><a href="about.html">Hakkımızda</a></li><li><a href="community.html">Topluluk</a></li><li><a href="contact.html">İletişim</a></li></ul></div><div class="footer-col"><h4>İletişim</h4><ul><li><a href="contact.html">Demo Ders Ayarla</a></li><li><a href="https://wa.me/905318711374" target="_blank" rel="noopener">WhatsApp</a></li></ul></div></div><div class="footer-bottom"><span>© 2025 Cozy English. Tüm hakları saklıdır.</span><span>Kozyatağı, Kadıköy — İstanbul</span></div></footer>
+<script src="js/main.js"></script>
+<div class="method-modal" id="methodModal">
+  <div class="method-modal-box">
+    <button class="modal-close" aria-label="Kapat">×</button>
+    <div class="modal-title">Yöntem</div>
+    <div class="modal-body"><p></p></div>
+  </div>
+</div>
+</body>
+</html>
