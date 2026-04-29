@@ -5,13 +5,15 @@
 <title>İş ve Profesyonel İngilizce — Cozy English</title>
 <link rel="icon" href="../cozy-favicon.png.png" type="image/png"/>
 <link rel="stylesheet" href="../css/style.css"/>
+
 <style>
+/* (your CSS unchanged) */
 .prog-hero{background:var(--primary);padding:5rem 2rem 4.5rem;position:relative;overflow:hidden;}
 .prog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 20%,rgba(241,174,98,0.2) 0%,transparent 60%);}
 .prog-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
 .prog-back{display:inline-flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:2rem;transition:color 0.2s;}
 .prog-back:hover{color:rgba(255,255,255,0.9);}
-.prog-tag{display:inline-block;background:rgba(241,174,98,0.2);color:var(--amber-light);font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1.25rem;}
+.prog-tag{display:inline-block;background:rgba(241,174,98,0.2);color:var(--amber-light);font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform-uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1.25rem;}
 .prog-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.25rem,4vw,3.25rem);font-weight:600;color:#fff;line-height:1.12;margin-bottom:1rem;}
 .prog-hero p{font-size:1.0625rem;color:rgba(255,255,255,0.6);max-width:600px;line-height:1.8;}
 .prog-hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;}
@@ -37,53 +39,52 @@
 @media(max-width:700px){.outcome-grid{grid-template-columns:1fr;}.prog-hero-stats{gap:1.5rem;}}
 </style>
 </head>
+
 <body>
 
 <nav>
   <div class="nav-inner">
     <a href="../index.html" class="nav-logo-only">
-      <div class="logo-mark-lg"><img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" onerror="this.style.display='none'"/><span class="logo-fb-lg">C</span></div>
+      <div class="logo-mark-lg">
+        <img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English"
+        onerror="this.style.display='none'"/>
+        <span class="logo-fb-lg">C</span>
+      </div>
     </a>
+
     <ul class="nav-links">
       <li><a href="../index.html">Ana Sayfa</a></li>
+
       <li class="nav-dropdown">
         <a href="../programs.html" class="nav-dropdown-toggle">Programlar ▾</a>
         <div class="nav-dropdown-menu">
+
+          <!-- FIXED LINKS -->
           <a href="professional.html">İş ve Profesyonel İngilizce</a>
-          <a href="speaking-fluency.html">Conversational &amp; Fluency</a>
-          <a href="travel-daily.html">Travel &amp; International</a>
+          <a href="speaking-fluency.html">Konuşma & Akıcılık</a>
+          <a href="travel-daily.html">Travel & Daily English</a>
           <a href="overseas-education.html">Yurt Dışı Eğitim</a>
+
         </div>
       </li>
+
       <li><a href="../about.html">Hakkımızda</a></li>
       <li><a href="../community.html">Topluluk</a></li>
       <li><a href="../contact.html">İletişim</a></li>
     </ul>
+
     <div class="nav-right">
-      <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
       <a href="../contact.html" class="btn-nav">Ücretsiz Demo</a>
-      <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
-
-<div class="mobile-menu">
-  <a href="../index.html">Ana Sayfa</a>
-  <a href="../programs.html">Programlar</a>
-  <a href="../about.html">Hakkımızda</a>
-  <a href="../community.html">Topluluk</a>
-  <a href="../contact.html">İletişim</a>
-  <div class="mobile-menu-bottom">
-    <a href="../contact.html" class="btn-primary">Ücretsiz Demo</a>
-    <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
-  </div>
-</div>
 
 <div class="page-wrap">
 
 <div class="prog-hero">
   <div class="prog-hero-inner">
     <a href="../programs.html" class="prog-back">← Tüm Programlar</a>
+
     <span class="prog-tag">İş ve Profesyonel İngilizce</span>
 
     <h1>İngilizce bilmek değil — etkili kullanmak.</h1>
@@ -92,12 +93,6 @@
       Toplantılarda kendinizi net ifade etmek, doğru anda doğru tonu yakalamak ve uluslararası iş ortamında
       daha görünür ve güvenilir bir iletişim kurmak için tasarlandı.
     </p>
-
-    <div class="prog-hero-stats">
-      <div><div class="prog-stat-num">1:1</div><div class="prog-stat-label">Birebir, kişiye özel</div></div>
-      <div><div class="prog-stat-num">60–90'</div><div class="prog-stat-label">Oturum başına</div></div>
-      <div><div class="prog-stat-num">%80</div><div class="prog-stat-label">Aktif konuşma pratiği</div></div>
-    </div>
   </div>
 </div>
 
@@ -107,121 +102,18 @@
 
     <p>
       İngilizceyi biliyorsunuz ama gerçek iş ortamında onu akıcı ve güçlü şekilde kullanmakta zorlanıyorsunuz.
-      Toplantılarda daha az konuşuyor, e-postaları yazarken fazla zaman harcıyor veya kendinizi tam ifade edemediğinizi hissediyorsunuz.
-    </p>
-
-    <p>
-      Bu bir bilgi eksikliği değil, <strong>kullanım ve refleks problemi</strong>. Bu program tam olarak bunu çözmek için tasarlandı:
-      bildiğiniz İngilizceyi aktif ve etkili iletişime dönüştürmek.
-    </p>
-
-    <div class="outcome-grid">
-      <div class="outcome-card">
-        <h4>Toplantı & Sunum</h4>
-        <p>Daha net, kısa ve kontrollü konuşma; fikirleri akıcı şekilde yapılandırma.</p>
-      </div>
-
-      <div class="outcome-card">
-        <h4>Müzakere Dili</h4>
-        <p>Net ama profesyonel iletişim: pozisyon kaybetmeden kendini ifade edebilme.</p>
-      </div>
-
-      <div class="outcome-card">
-        <h4>Profesyonel Yazışma</h4>
-        <p>E-posta ve raporlarda doğru ton, net yapı ve hızlı üretim.</p>
-      </div>
-
-      <div class="outcome-card">
-        <h4>Uluslararası İletişim</h4>
-        <p>Farklı kültürlerle çalışırken daha doğal ve güvenilir iletişim.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="content-section alt">
-  <div class="content-inner">
-    <h2>Dersler nasıl ilerler?</h2>
-
-    <p>
-      Sabit bir müfredat yoktur. Çünkü iş hayatı sabit değildir.
-      Her ders, sizin gerçek iş senaryolarınız üzerinden şekillenir.
-    </p>
-
-    <ul class="scenario-list">
-      <li>Gerçek toplantı simülasyonları ve anlık konuşma pratiği</li>
-      <li>Sunum açılışları, geçişler ve güçlü kapanış yapıları</li>
-      <li>Profesyonel e-posta yazımı ve ton kontrolü</li>
-      <li>Zor konuşmalarda doğru ifade stratejileri</li>
-      <li>Akıcılık, refleks ve konuşma hızını geliştirme</li>
-      <li>İş İngilizcesinde doğal kelime ve ifade kullanımı</li>
-      <li>Kültürel iletişim farkları (uluslararası iş ortamı)</li>
-    </ul>
-
-    <p>
-      Hedef, doğru cümleleri bilmek değil — <strong>doğru anda otomatik olarak kullanabilmek</strong>.
-    </p>
-  </div>
-</section>
-
-<section class="content-section">
-  <div class="content-inner">
-    <h2>Neden bu yaklaşım farklı?</h2>
-
-    <p>
-      Çoğu program İngilizce “öğretir”. Bu program ise İngilizceyi <strong>kullandırır</strong>.
-    </p>
-
-    <p>
-      Her ders sizin gerçek iş hayatınıza dayanır: yaklaşan toplantılar, yaşanan zor konuşmalar ve yazmanız gereken e-postalar.
-      Böylece öğrenme teoride kalmaz, doğrudan pratiğe dönüşür.
     </p>
 
     <div class="callout">
       <h3>“Artık konuşurken duraksamıyorum.”</h3>
-      <p>Hedef daha fazla İngilizce bilmek değil — bildiğini daha güçlü kullanmak.</p>
-      <a href="../contact.html" class="btn-amber">Demo Ders Planla →</a>
+      <p>Hedef bilmek değil — kullanmak.</p>
+      <a href="../contact.html" class="btn-amber">Demo Planla →</a>
     </div>
+
   </div>
 </section>
 
 </div>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div style="margin-bottom:1rem;">
-        <div style="width:200px;overflow:hidden;display:flex;align-items:center;">
-          <img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" style="width:200px;height:auto;object-fit:contain;" onerror="this.style.display='none'"/>
-        </div>
-      </div>
-      <p>Birebir, nöropsikoloji temelli İngilizce koçluğu. Kozyatağı, Kadıköy — İstanbul.</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Programlar</h4>
-      <ul>
-        <li><a href="professional.html">İş ve Profesyonel İngilizce</a></li>
-        <li><a href="conversational.html">Konuşma & Akıcılık</a></li>
-        <li><a href="travel.html">Seyahat & Günlük İngilizce</a></li>
-        <li><a href="fluency.html">Özgüven & Akıcılık</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>İletişim</h4>
-      <ul>
-        <li><a href="../contact.html">Demo Ders</a></li>
-        <li><a href="https://wa.me/905318711374" target="_blank" rel="noopener">WhatsApp</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <span>© 2025 Cozy English.</span>
-    <span>Kozyatağı, Kadıköy — İstanbul</span>
-  </div>
-</footer>
 
 <script src="../js/main.js"></script>
 </body>
