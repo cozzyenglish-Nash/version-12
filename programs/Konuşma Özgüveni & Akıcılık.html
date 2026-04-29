@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-
-<title>Conversational & Fluency — Cozy English</title>
-
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Speaking System — Cozy English</title>
 <link rel="icon" href="../cozy-favicon.png.png" type="image/png"/>
 <link rel="stylesheet" href="../css/style.css"/>
 
 <style>
 .prog-hero{background:var(--primary);padding:5rem 2rem 4.5rem;position:relative;overflow:hidden;}
-.prog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(241,174,98,0.18) 0%,transparent 60%);}
+.prog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(241,174,98,0.2) 0%,transparent 60%);}
 .prog-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
 .prog-back{display:inline-flex;align-items:center;gap:8px;font-size:0.8125rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:2rem;transition:color 0.2s;}
 .prog-back:hover{color:rgba(255,255,255,0.9);}
 .prog-tag{display:inline-block;background:rgba(241,174,98,0.2);color:var(--amber-light);font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:1.25rem;}
 .prog-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.25rem,4vw,3.25rem);font-weight:600;color:#fff;line-height:1.12;margin-bottom:1rem;}
-.prog-hero p{font-size:1.0625rem;color:rgba(255,255,255,0.6);max-width:600px;line-height:1.8;}
+.prog-hero p{font-size:1.0625rem;color:rgba(255,255,255,0.6);max-width:650px;line-height:1.8;}
+
 .prog-hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;}
 .prog-stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--amber-light);line-height:1;}
 .prog-stat-label{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:3px;}
@@ -26,40 +24,78 @@
 .content-section.alt{background:var(--pearl);}
 .content-inner{max-width:860px;margin:0 auto;padding:0 2rem;}
 
-.content-inner h2{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(1.75rem,3vw,2.375rem);
-font-weight:600;
+.content-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,3vw,2.375rem);font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1.5rem;}
+.content-inner p{font-size:1rem;line-height:1.9;color:var(--ink-light);margin-bottom:1.25rem;}
+.content-inner strong{color:var(--ink);font-weight:500;}
+
+.block-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:1rem;
+margin:2rem 0;
+}
+
+.block-card{
+border:1px solid var(--border);
+border-radius:12px;
+padding:1.5rem;
+background:var(--white);
+}
+
+.block-card h4{
+font-size:0.95rem;
+margin-bottom:0.5rem;
 color:var(--ink);
-line-height:1.2;
+font-weight:500;
+}
+
+.block-card p{
+font-size:0.85rem;
+line-height:1.7;
+color:var(--ink-light);
+}
+
+.phase-list{list-style:none;margin:2rem 0;}
+.phase-item{
+display:grid;
+grid-template-columns:48px 1fr;
+gap:1.25rem;
+padding:1.5rem 0;
+border-bottom:1px solid var(--border);
+}
+.phase-num{
+width:48px;height:48px;border-radius:50%;
+background:var(--primary);color:#fff;
+display:flex;align-items:center;justify-content:center;
+font-family:'Cormorant Garamond',serif;
+font-size:1.2rem;
+font-weight:600;
+}
+
+.callout{
+background:var(--primary);
+border-radius:14px;
+padding:2.5rem 3rem;
+text-align:center;
+margin:3rem 0;
+}
+.callout h3{
+font-family:'Cormorant Garamond',serif;
+font-size:1.6rem;
+font-style:italic;
+color:#fff;
+margin-bottom:0.75rem;
+}
+.callout p{
+color:rgba(255,255,255,0.6);
+font-size:0.95rem;
+line-height:1.7;
 margin-bottom:1.5rem;
 }
 
-.content-inner p{
-font-size:1rem;
-line-height:1.9;
-color:var(--ink-light);
-margin-bottom:1.25rem;
-}
-
-.content-inner strong{color:var(--ink);font-weight:500;}
-
-.blocker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:2rem 0;}
-.blocker-card{border:1px solid var(--border);border-radius:12px;padding:1.5rem;}
-.blocker-card h4{font-size:0.9375rem;font-weight:500;color:var(--ink);margin-bottom:0.4rem;display:flex;align-items:center;gap:8px;}
-.blocker-card p{font-size:0.85rem;line-height:1.7;color:var(--ink-light);margin:0;}
-
-.scenario-list{list-style:none;margin:1.5rem 0;}
-.scenario-list li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:0.9375rem;color:var(--ink-light);line-height:1.7;}
-.scenario-list li:last-child{border-bottom:none;}
-.scenario-list li::before{content:'→';color:var(--amber);flex-shrink:0;font-weight:500;margin-top:2px;}
-
-.callout{background:var(--primary);border-radius:14px;padding:2.5rem 3rem;text-align:center;margin:3rem 0;}
-.callout h3{font-family:'Cormorant Garamond',serif;font-size:1.625rem;font-weight:600;font-style:italic;color:#fff;margin-bottom:0.75rem;}
-.callout p{color:rgba(255,255,255,0.6);font-size:0.9375rem;line-height:1.7;margin-bottom:1.5rem;}
-
 @media(max-width:700px){
-.blocker-grid{grid-template-columns:1fr;}
+.block-grid{grid-template-columns:1fr;}
+.phase-item{grid-template-columns:44px 1fr;}
 }
 </style>
 </head>
@@ -70,8 +106,7 @@ margin-bottom:1.25rem;
   <div class="nav-inner">
     <a href="../index.html" class="nav-logo-only">
       <div class="logo-mark-lg">
-        <img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English"
-        onerror="this.style.display='none'"/>
+        <img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" onerror="this.style.display='none'"/>
         <span class="logo-fb-lg">C</span>
       </div>
     </a>
@@ -79,12 +114,12 @@ margin-bottom:1.25rem;
     <ul class="nav-links">
       <li><a href="../index.html">Ana Sayfa</a></li>
       <li class="nav-dropdown">
-        <a href="../programs.html" class="nav-dropdown-toggle">Programlar ▾</a>
+        <a href="../programs.html">Programlar ▾</a>
         <div class="nav-dropdown-menu">
           <a href="business.html">Business English</a>
-          <a href="conversational.html">Conversational &amp; Fluency</a>
-          <a href="travel.html">Travel &amp; International</a>
-          <a href="fluency.html">Fluency &amp; Özgüven</a>
+          <a href="speaking.html">Speaking System</a>
+          <a href="travel.html">Travel & International</a>
+          <a href="fluency.html">Fluency & Özgüven</a>
           <a href="overseas.html">Yurt Dışı Eğitim</a>
         </div>
       </li>
@@ -95,78 +130,69 @@ margin-bottom:1.25rem;
 
     <div class="nav-right">
       <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="tr">TR</button>
-        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn active">TR</button>
+        <button class="lang-btn">EN</button>
       </div>
       <a href="../contact.html" class="btn-nav">Ücretsiz Demo</a>
-      <button class="hamburger" aria-label="Menü">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </div>
 </nav>
 
-<div class="mobile-menu">
-  <a href="../index.html">Ana Sayfa</a>
-  <a href="../programs.html">Programlar</a>
-  <a href="../about.html">Hakkımızda</a>
-  <a href="../community.html">Topluluk</a>
-  <a href="../contact.html">İletişim</a>
-
-  <div class="mobile-menu-bottom">
-    <a href="../contact.html" class="btn-primary">Ücretsiz Demo</a>
-  </div>
-</div>
-
 <div class="page-wrap">
 
+<!-- HERO -->
 <div class="prog-hero">
   <div class="prog-hero-inner">
+
     <a href="../programs.html" class="prog-back">← Tüm Programlar</a>
 
-    <span class="prog-tag">Conversational & Fluency</span>
+    <span class="prog-tag">Speaking System</span>
 
-    <h1>Biliyorsunuz. Ama o an gelince… ses çıkmıyor.</h1>
+    <h1>Konuşma bir bilgi değil — bir sistemdir.</h1>
 
-    <p>Gramer biliyor, kelimeler aklınızda — ama gerçek hayatta bir anda her şey boşalıyor. Fluency bir bilgi meselesi değil. Alışkanlık ve güven meselesidir. Bu program, o boşluğu adım adım kapatmak için tasarlandı.</p>
+    <p>
+      İngilizceyi bilmek konuşmak değildir. Bu program, “biliyorum ama konuşamıyorum” problemini iki katmanda çözer: zihinsel bloklar ve gerçek konuşma refleksi.
+    </p>
 
     <div class="prog-hero-stats">
-      <div><div class="prog-stat-num">%80</div><div class="prog-stat-label">Ders konuşmayla geçer</div></div>
-      <div><div class="prog-stat-num">1:1</div><div class="prog-stat-label">Güvenli ortam</div></div>
-      <div><div class="prog-stat-num">6–8</div><div class="prog-stat-label">Haftada fark hissedilir</div></div>
+      <div><div class="prog-stat-num">Psikoloji</div><div class="prog-stat-label">Blokaj çözümü</div></div>
+      <div><div class="prog-stat-num">Pratik</div><div class="prog-stat-label">Gerçek konuşma</div></div>
+      <div><div class="prog-stat-num">1:1</div><div class="prog-stat-label">Kişisel sistem</div></div>
     </div>
 
   </div>
 </div>
 
+<!-- PROBLEM -->
 <section class="content-section">
   <div class="content-inner">
-    <h2>Bu his tanıdık mı?</h2>
 
-    <p>Yıllarca İngilizce öğrendiniz. Anlıyorsunuz. Okuyabiliyorsunuz. Ama konuşmak… bir türlü gelmiyor.</p>
+    <h2>Neden konuşamıyorsunuz?</h2>
 
-    <p>Bu bir bilgi sorunu değil. <strong>Bir konuşma erişim sorunu.</strong></p>
+    <p>
+      Sorun bilgi eksikliği değil. Sorun, beynin İngilizceyi “anlama modunda” kalması ve “üretim moduna” geçememesidir.
+    </p>
 
-    <div class="blocker-grid">
+    <div class="block-grid">
 
-      <div class="blocker-card">
-        <h4>🧠 Zihinsel blokaj</h4>
-        <p>Konuşmadan önce çeviri yapma alışkanlığı akışı keser.</p>
+      <div class="block-card">
+        <h4>Zihinsel çeviri</h4>
+        <p>Türkçeden İngilizceye çevirerek konuşmaya çalışmak akışı tamamen yavaşlatır.</p>
       </div>
 
-      <div class="blocker-card">
-        <h4>😰 Hata korkusu</h4>
-        <p>Yanlış yapma korkusu konuşmayı yavaşlatır ve durdurur.</p>
+      <div class="block-card">
+        <h4>Hata korkusu</h4>
+        <p>Yanlış yapma baskısı konuşmayı durdurur ve doğal refleksi bloke eder.</p>
       </div>
 
-      <div class="blocker-card">
-        <h4>🔄 Pratik eksikliği</h4>
-        <p>Bilgi konuşmaya dönüşmez — kullanım gerekir.</p>
+      <div class="block-card">
+        <h4>Pratik eksikliği</h4>
+        <p>Bilmek ile üretmek arasında büyük bir boşluk vardır. Bu boşluk konuşmadan kapanmaz.</p>
       </div>
 
-      <div class="blocker-card">
-        <h4>🎯 Gerçek bağlam eksikliği</h4>
-        <p>Dil, gerçek konuşma içinde öğrenilir.</p>
+      <div class="block-card">
+        <h4>Gerçek zaman eksikliği</h4>
+        <p>Hazırlıklı cevaplar değil, spontane konuşma eksikliği asıl sorundur.</p>
       </div>
 
     </div>
@@ -174,27 +200,51 @@ margin-bottom:1.25rem;
   </div>
 </section>
 
+<!-- SYSTEM -->
 <section class="content-section alt">
   <div class="content-inner">
 
-    <h2>Bu programda ne değişir?</h2>
+    <h2>Speaking System nasıl çalışır?</h2>
 
-    <p>Her ders konuşma üzerine kurulu. Dinleme değil, üretim.</p>
+    <ul class="phase-list">
 
-    <ul class="scenario-list">
-      <li>Günlük konuşmalarda akış geliştirme</li>
-      <li>İngilizce düşünme refleksi</li>
-      <li>Telaffuz ve doğal tonlama</li>
-      <li>Türkçe → İngilizce geçiş hızını azaltma</li>
-      <li>Konuşma kaygısını azaltma teknikleri</li>
-      <li>Gerçek rol-play senaryoları</li>
-      <li>Kelimelere hızlı erişim</li>
-      <li>Periyodik konuşma değerlendirmesi</li>
+      <li class="phase-item">
+        <div class="phase-num">1</div>
+        <div>
+          <h4>Konuşma analizini kırmak</h4>
+          <p>Gerçek konuşma üzerinden blokaj noktaları tespit edilir.</p>
+        </div>
+      </li>
+
+      <li class="phase-item">
+        <div class="phase-num">2</div>
+        <div>
+          <h4>Fluency yeniden inşa</h4>
+          <p>Çeviri yerine doğrudan İngilizce üretim sistemi kurulur.</p>
+        </div>
+      </li>
+
+      <li class="phase-item">
+        <div class="phase-num">3</div>
+        <div>
+          <h4>Konuşma refleksi</h4>
+          <p>Yoğun konuşma ile kelime erişim hızı otomatikleşir.</p>
+        </div>
+      </li>
+
+      <li class="phase-item">
+        <div class="phase-num">4</div>
+        <div>
+          <h4>Stabil özgüven</h4>
+          <p>Konuşma artık düşünme gerektirmez — doğal hale gelir.</p>
+        </div>
+      </li>
+
     </ul>
 
     <div class="callout">
-      <h3>"Artık durup düşünmüyorum."</h3>
-      <p>Kelime bilgisi değil — otomatik konuşma refleksi geliştirirsiniz.</p>
+      <h3>"Artık konuşurken düşünmüyorum."</h3>
+      <p>Bu sistem İngilizceyi öğretmez — konuşmayı yeniden yapılandırır.</p>
       <a href="../contact.html" class="btn-amber">Demo Ders →</a>
     </div>
 
@@ -206,42 +256,10 @@ margin-bottom:1.25rem;
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-logo">
-        <div style="width:200px;overflow:hidden;display:flex;align-items:center;">
-          <img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English"
-          style="width:200px;height:auto;object-fit:contain;"
-          onerror="this.style.display='none'"/>
-        </div>
-      </div>
-      <p>Birebir İngilizce koçluğu — Kadıköy, İstanbul.</p>
+      <p>Cozy English — birebir, nöropsikoloji temelli İngilizce eğitimi.</p>
     </div>
-
-    <div class="footer-col">
-      <h4>Programlar</h4>
-      <ul>
-        <li><a href="business.html">Business English</a></li>
-        <li><a href="conversational.html">Conversational</a></li>
-        <li><a href="travel.html">Travel & International</a></li>
-        <li><a href="fluency.html">Fluency & Özgüven</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>İletişim</h4>
-      <ul>
-        <li><a href="../contact.html">Demo</a></li>
-        <li><a href="https://wa.me/905318711374" target="_blank">WhatsApp</a></li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <span>© 2025 Cozy English.</span>
   </div>
 </footer>
-
-<script src="../js/main.js"></script>
 
 </body>
 </html>
