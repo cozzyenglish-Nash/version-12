@@ -71,19 +71,37 @@
       <li class="nav-dropdown">
         <a href="../programs.html" class="nav-dropdown-toggle">Programlar ▾</a>
         <div class="nav-dropdown-menu">
-          <a href="business.html">Business English</a>
-          <a href="conversational.html">Conversational &amp; Fluency</a>
-          <a href="travel.html">Travel &amp; International</a>
-          <a href="fluency.html">Fluency &amp; Özgüven</a>
-          <a href="overseas.html">Yurt Dışı Eğitim</a>
+          <!-- FIXED: correct subpage files inside /programs/ folder -->
+          <a href="professional.html">İş ve Profesyonel İngilizce</a>
+          <a href="speaking-fluency.html">Konuşma & Akıcılık</a>
+          <a href="travel-daily.html">Travel & Daily English</a>
+          <a href="overseas-education.html">Yurt Dışı Eğitim</a>
         </div>
       </li>
       <li><a href="../about.html">Hakkımızda</a></li>
       <li><a href="../community.html">Topluluk</a></li>
       <li><a href="../contact.html">İletişim</a></li>
     </ul>
+
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+      <a href="../contact.html" class="btn-nav">Ücretsiz Demo</a>
+      <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </nav>
+
+<div class="mobile-menu">
+  <a href="../index.html">Ana Sayfa</a>
+  <a href="../programs.html">Programlar</a>
+  <a href="../about.html">Hakkımızda</a>
+  <a href="../community.html">Topluluk</a>
+  <a href="../contact.html">İletişim</a>
+  <div class="mobile-menu-bottom">
+    <a href="../contact.html" class="btn-primary">Ücretsiz Demo</a>
+    <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+  </div>
+</div>
 
 <div class="page-wrap">
 
@@ -224,10 +242,24 @@
 </div>
 
 <footer>
-  <div class="footer-bottom">
-    <span>© 2025 Cozy English.</span>
-    <span>Kozyatağı, Kadıköy — İstanbul</span>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="margin-bottom:1rem;">
+        <div style="width:200px;overflow:hidden;display:flex;align-items:center;">
+          <img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" style="width:200px;height:auto;object-fit:contain;" onerror="this.style.display='none'"/>
+        </div>
+      </div>
+      <p>Nöropsikoloji ve öğrenme psikolojisi temelli, butik ve birebir İngilizce koçluğu. Kozyatağı, Kadıköy — İstanbul.</p>
+    </div>
+    <div class="footer-col"><h4>Programlar</h4><ul>
+      <li><a href="professional.html">İş ve Profesyonel İngilizce</a></li>
+      <li><a href="speaking-fluency.html">Konuşma & Akıcılık</a></li>
+      <li><a href="travel-daily.html">Travel & Daily English</a></li>
+      <li><a href="overseas-education.html">Yurt Dışı Eğitim</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>İletişim</h4><ul><li><a href="../contact.html">Demo Ders Ayarla</a></li><li><a href="https://wa.me/905318711374" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
   </div>
+  <div class="footer-bottom"><span>© 2025 Cozy English.</span><span>Kozyatağı, Kadıköy — İstanbul</span></div>
 </footer>
 
 <script src="../js/main.js"></script>
