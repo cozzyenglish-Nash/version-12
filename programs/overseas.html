@@ -24,10 +24,12 @@
 .content-inner p{font-size:1rem;line-height:1.9;color:var(--ink-light);margin-bottom:1.25rem;}
 .content-inner strong{color:var(--ink);font-weight:500;}
 .track-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:2rem 0;}
-.track-card{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--primary);border-radius:12px;padding:1.5rem;}
+.track-card{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--primary);border-radius:12px;padding:1.5rem;transition:all 0.3s ease;}
 .track-card .icon{font-size:1.5rem;margin-bottom:0.875rem;}
 .track-card h4{font-size:0.9375rem;font-weight:500;color:var(--ink);margin-bottom:0.4rem;}
 .track-card p{font-size:0.85rem;line-height:1.7;color:var(--ink-light);margin:0;}
+.track-card.dimmed{opacity:0.45;}
+.track-card.highlighted{border-top-color:var(--amber);box-shadow:0 4px 20px rgba(0,58,102,0.12);}
 .timeline{margin:2rem 0;counter-reset:steps;}
 .timeline-item{display:grid;grid-template-columns:56px 1fr;gap:1.5rem;margin-bottom:2rem;align-items:start;}
 .timeline-num{width:56px;height:56px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.375rem;font-weight:600;flex-shrink:0;}
@@ -40,7 +42,61 @@
 .callout{background:var(--primary);border-radius:14px;padding:2.5rem 3rem;text-align:center;margin:3rem 0;}
 .callout h3{font-family:'Cormorant Garamond',serif;font-size:1.625rem;font-weight:600;font-style:italic;color:#fff;margin-bottom:0.75rem;}
 .callout p{color:rgba(255,255,255,0.6);font-size:0.9375rem;line-height:1.7;margin-bottom:1.5rem;}
-@media(max-width:700px){.track-grid{grid-template-columns:1fr;}.timeline-item{grid-template-columns:44px 1fr;}}
+/* ── Audience Selector ─────────────────────────────────────── */
+.audience-selector{
+  margin-top:2rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.selector-label{
+  font-size:0.75rem;
+  color:rgba(255,255,255,0.4);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  font-family:'Outfit',sans-serif;
+}
+.selector-pills{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.sel-pill{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.6);
+  font-size:0.8125rem;
+  font-family:'Outfit',sans-serif;
+  padding:6px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  letter-spacing:0.02em;
+}
+.sel-pill:hover{
+  background:rgba(255,255,255,0.14);
+  color:rgba(255,255,255,0.9);
+  border-color:rgba(255,255,255,0.4);
+}
+.sel-pill.active{
+  background:var(--amber);
+  border-color:var(--amber);
+  color:#fff;
+}
+/* ── Personalizable text zones ─────────────────────────────── */
+[data-copy]{
+  transition:opacity 0.28s ease;
+}
+[data-copy].fading{
+  opacity:0;
+}
+@media(max-width:700px){
+  .track-grid{grid-template-columns:1fr;}
+  .timeline-item{grid-template-columns:44px 1fr;}
+  .audience-selector{flex-direction:column;align-items:flex-start;}
+}
 </style>
 </head>
 <body>
@@ -57,7 +113,6 @@
           <a href="business.html">Business English</a>
           <a href="conversational.html">Conversational &amp; Fluency</a>
           <a href="travel.html">Travel &amp; International</a>
-          <a href="overseas.html">Yurt Dışı Eğitim</a>
           <a href="fluency.html">Fluency &amp; Özgüven</a>
           <a href="overseas.html">Yurt Dışı Eğitim</a>
         </div>
@@ -91,11 +146,19 @@
     <a href="../programs.html" class="prog-back">← Tüm Programlar</a>
     <span class="prog-tag">Yurt Dışı Eğitim Hazırlığı</span>
     <h1>Boarding school, üniversite, kariyer — her adımda hazır.</h1>
-    <p>İngilizce eğitim hedefleriniz için birebir, odaklı hazırlık. Mülakattan akademik yazıya, özgüvenden kültürel uyuma — eksiksiz bir program.</p>
+    <p data-copy="hero-sub">İngilizce eğitim hedefleriniz için birebir, odaklı hazırlık. Mülakattan akademik yazıya, özgüvenden kültürel uyuma — eksiksiz bir program.</p>
     <div class="prog-hero-stats">
       <div><div class="prog-stat-num">3</div><div class="prog-stat-label">Hazırlık rotası</div></div>
       <div><div class="prog-stat-num">1:1</div><div class="prog-stat-label">Kişiye özel program</div></div>
       <div><div class="prog-stat-num">8 hafta</div><div class="prog-stat-label">Önerilen hazırlık süresi</div></div>
+    </div>
+    <div class="audience-selector" id="audienceSelector">
+      <span class="selector-label">Hedefinizi seçin</span>
+      <div class="selector-pills">
+        <button class="sel-pill" data-audience="boarding">Veli &amp; Öğrenci</button>
+        <button class="sel-pill" data-audience="universite">Üniversite</button>
+        <button class="sel-pill" data-audience="kariyer">Kariyer</button>
+      </div>
     </div>
   </div>
 </div>
@@ -103,19 +166,19 @@
 <section class="content-section">
   <div class="content-inner">
     <h2>Hangi hedefe hazırlanıyorsunuz?</h2>
-    <p>Yurt dışı eğitim hazırlığı tek bir profil değil — üç farklı yol. Program, tam olarak hangi hedefte olduğunuza göre şekillendirilir.</p>
-    <div class="track-grid">
-      <div class="track-card">
+    <p data-copy="section1-intro">Yurt dışı eğitim hazırlığı tek bir profil değil — üç farklı yol. Program, tam olarak hangi hedefte olduğunuza göre şekillendirilir.</p>
+    <div class="track-grid" id="trackGrid">
+      <div class="track-card" data-track="boarding">
         <div class="icon">🏫</div>
         <h4>Boarding School</h4>
         <p>İngiliz yatılı okulu başvurusu ve mülakat hazırlığı. 13–18 yaş arası öğrenciler için odaklı program.</p>
       </div>
-      <div class="track-card">
+      <div class="track-card" data-track="universite">
         <div class="icon">🎓</div>
         <h4>Yurt Dışı Üniversite</h4>
         <p>Başvuru sürecinden akademik İngilizceye, essay yazımından görüşme hazırlığına.</p>
       </div>
-      <div class="track-card">
+      <div class="track-card" data-track="kariyer">
         <div class="icon">💼</div>
         <h4>Uluslararası Kariyer</h4>
         <p>Yurt dışında çalışmayı hedefleyenler için iş İngilizcesi ve kültürel uyum odaklı hazırlık.</p>
@@ -163,7 +226,7 @@
 
 <section class="content-section">
   <div class="content-inner">
-    <h2>Mülakatyı geçecek dil kalıpları</h2>
+    <h2>Mülakatı geçecek dil kalıpları</h2>
     <p>Mülakatçıların doğru cevabı değil, düşünme kalitesini ve iletişim tarzını değerlendirdiğini unutmayın.</p>
     <ul class="scenario-list">
       <li>Kişisel anlatı: "I've always been drawn to…" ve "One experience that shaped me was…"</li>
@@ -175,7 +238,7 @@
     </ul>
     <div class="callout">
       <h3>"Doğru hazırlık farkı ortadan kaldırır."</h3>
-      <p>Yurt dışı eğitim hedefleriniz için 8 haftalık kişisel hazırlık programı. İlk adım ücretsiz demo dersiyle başlar.</p>
+      <p data-copy="callout-body">Yurt dışı eğitim hedefleriniz için 8 haftalık kişisel hazırlık programı. İlk adım ücretsiz demo dersiyle başlar.</p>
       <a href="../contact.html" class="btn-amber">Ücretsiz Demo Ders Al →</a>
     </div>
   </div>
@@ -216,5 +279,152 @@
   </div>
 </footer>
 <script src="../js/main.js"></script>
+<script>
+(function(){
+
+  /* ── 1. COPY BANK ─────────────────────────────────────────────────────
+     Default = current page copy, unchanged.
+     Audience variants ready for language pass in next step.
+  ─────────────────────────────────────────────────────────────────────── */
+  var copy = {
+    'default': {
+      'hero-sub':
+        'İngilizce eğitim hedefleriniz için birebir, odaklı hazırlık. ' +
+        'Mülakattan akademik yazıya, özgüvenden kültürel uyuma — eksiksiz bir program.',
+      'section1-intro':
+        'Yurt dışı eğitim hazırlığı tek bir profil değil — üç farklı yol. ' +
+        'Program, tam olarak hangi hedefte olduğunuza göre şekillendirilir.',
+      'callout-body':
+        'Yurt dışı eğitim hedefleriniz için 8 haftalık kişisel hazırlık programı. ' +
+        'İlk adım ücretsiz demo dersiyle başlar.'
+    },
+    'boarding': {
+      'hero-sub':
+        'Mülakat günü hazır olmak için zaman var. ' +
+        'İngiliz yatılı okul mülakatları hem dil hem özgüven hem de kültürel hazırlık gerektirir. ' +
+        'Doğru yerden başlayalım.',
+      'section1-intro':
+        'Her İngiliz okulu farklı bir mülakat kültürüne sahiptir. ' +
+        'Hazırlık bu farkı bilmekle başlar — ve doğru hazırlık çocuğunuzun sesini bulmasını sağlar.',
+      'callout-body':
+        'Çocuğunuzun mülakata hazır girmesi için 8 hafta yeterlidir. ' +
+        'İlk adım ücretsiz demo dersiyle başlar.'
+    },
+    'universite': {
+      'hero-sub':
+        'Başvuru sürecinde dil fark yaratır — doğru dil, doğru anda. ' +
+        'Essay\'den mülakata, akademik ifadeden özgüvene — başvurunuzun her adımı için hazırlanıyorsunuz.',
+      'section1-intro':
+        'Üniversite başvurusu dil sınavından ibaret değildir. ' +
+        'Essay, mülakat ve akademik ifade bir arada değerlendirilir. ' +
+        'Program, bu üç alanı birlikte geliştirir.',
+      'callout-body':
+        'Başvurunuz güçlü bir dille çok daha ileri gider. ' +
+        'İlk adım ücretsiz demo dersiyle başlar.'
+    },
+    'kariyer': {
+      'hero-sub':
+        'Yurt dışında profesyonel olmak dil performansı gerektirir — sadece bilgi değil, etki. ' +
+        'Bu program, o geçişi sistemli şekilde hazırlar.',
+      'section1-intro':
+        'Kariyer hedefli hazırlık iş dilini, kültürel uyumu ve profesyonel iletişimi birlikte ele alır. ' +
+        'Genel değil — doğrudan sizin rolünüze göre.',
+      'callout-body':
+        'Kariyer hedefinize giden yolda dil bir engel olmaktan çıkar. ' +
+        'İlk adım ücretsiz demo dersiyle başlar.'
+    }
+  };
+
+  /* ── 2. URL PARAMETER READER (Option D) ───────────────────────────── */
+  function getUrlAudience(){
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var val = params.get('hedef');
+      if(val && copy[val]) return val;
+    } catch(e){}
+    return null;
+  }
+
+  /* ── 3. APPLY COPY WITH FADE TRANSITION ───────────────────────────── */
+  function applyCopy(audience){
+    var bank = copy[audience] || copy['default'];
+    document.querySelectorAll('[data-copy]').forEach(function(el){
+      var key = el.getAttribute('data-copy');
+      if(bank[key] === undefined) return;
+      el.classList.add('fading');
+      setTimeout(function(){
+        el.textContent = bank[key];
+        el.classList.remove('fading');
+      }, 280);
+    });
+  }
+
+  /* ── 4. HIGHLIGHT ACTIVE TRACK CARD ──────────────────────────────── */
+  function highlightCard(audience){
+    var cards = document.querySelectorAll('.track-card');
+    cards.forEach(function(card){
+      if(!audience){
+        card.classList.remove('highlighted','dimmed');
+      } else if(card.getAttribute('data-track') === audience){
+        card.classList.add('highlighted');
+        card.classList.remove('dimmed');
+      } else {
+        card.classList.add('dimmed');
+        card.classList.remove('highlighted');
+      }
+    });
+  }
+
+  /* ── 5. SET ACTIVE PILL ───────────────────────────────────────────── */
+  function setActivePill(audience){
+    document.querySelectorAll('.sel-pill').forEach(function(p){
+      p.classList.toggle('active', p.getAttribute('data-audience') === audience);
+    });
+  }
+
+  /* ── 6. ACTIVATE AUDIENCE ────────────────────────────────────────── */
+  function activate(audience, save){
+    if(save){
+      try { localStorage.setItem('cozy_audience', audience); } catch(e){}
+    }
+    setActivePill(audience);
+    applyCopy(audience);
+    highlightCard(audience);
+  }
+
+  /* ── 7. RESET TO DEFAULT ─────────────────────────────────────────── */
+  function reset(){
+    try { localStorage.removeItem('cozy_audience'); } catch(e){}
+    setActivePill(null);
+    applyCopy('default');
+    highlightCard(null);
+  }
+
+  /* ── 8. PILL CLICK HANDLERS ──────────────────────────────────────── */
+  document.querySelectorAll('.sel-pill').forEach(function(pill){
+    pill.addEventListener('click', function(){
+      var audience = this.getAttribute('data-audience');
+      if(this.classList.contains('active')){
+        reset();
+      } else {
+        activate(audience, true);
+      }
+    });
+  });
+
+  /* ── 9. INIT: URL param → localStorage → default ─────────────────── */
+  var urlAudience = getUrlAudience();
+  var storedAudience = null;
+  try { storedAudience = localStorage.getItem('cozy_audience'); } catch(e){}
+
+  if(urlAudience){
+    activate(urlAudience, true);
+  } else if(storedAudience && copy[storedAudience]){
+    activate(storedAudience, false);
+  }
+  // else: default state — no activation needed, page works as-is
+
+})();
+</script>
 </body>
 </html>
