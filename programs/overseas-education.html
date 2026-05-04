@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Overseas Education — Cozy English</title>
+<link rel="icon" href="../cozy-favicon.png.png" type="image/png"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<style>
+/* ── OVERSEAS EDUCATION PAGE ── */
+
+/* ── SHARED UTILITIES ── */
+.sr{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.sr.in{opacity:1;transform:translateY(0);}
+.sr-d1{transition-delay:0.1s;}.sr-d2{transition-delay:0.2s;}.sr-d3{transition-delay:0.3s;}.sr-d4{transition-delay:0.4s;}
+.oe-slabel{font-size:0.625rem;letter-spacing:0.2em;text-transform:uppercase;color:#f1ae62;font-weight:500;margin-bottom:1rem;}
+.oe-stitle{font-family:'Cormorant Garamond',serif;font-size:clamp(1.875rem,3vw,2.625rem);font-weight:300;line-height:1.15;color:#003A66;margin-bottom:1.5rem;}
+.oe-stitle em{font-style:italic;}
+.oe-sbody{font-size:0.9375rem;line-height:1.85;color:#6b7280;margin-bottom:1.5rem;}
+
+/* ── AUDIENCE SWITCHER ── */
+.oe-switch-bar{
+  position:sticky;top:68px;z-index:80;
+  background:#fff;
+  border-bottom:1px solid rgba(0,58,102,0.1);
+  display:flex;justify-content:center;
+  padding:0 2rem;
+}
+.oe-switch-inner{
+  display:flex;
+  max-width:600px;width:100%;
+  border-bottom:2px solid transparent;
+}
+.oe-switch-btn{
+  flex:1;padding:1rem 1.5rem;
+  background:transparent;border:none;
+  font-family:'Outfit',sans-serif;font-size:0.875rem;font-weight:500;
+  color:rgba(0,58,102,0.4);cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  transition:color 0.2s,border-color 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.oe-switch-btn.active{color:#003A66;border-bottom-color:#f1ae62;}
+.oe-switch-btn:hover:not(.active){color:#003A66;}
+
+/* ── HERO — SPLIT: boarding left, uni right ── */
+.oe-hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+}
+.oe-hero-panel{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:10rem 4rem 6rem;
+  position:relative;
+  transition:opacity 0.4s ease,transform 0.4s ease;
+}
+.oe-hero-panel.dim{opacity:0.25;transform:scale(0.98);}
+.oe-hero-panel.oe-boarding{background:#003A66;}
+.oe-hero-panel.oe-uni{background:#001f40;}
+.oe-hero-divider{
+  position:absolute;top:0;bottom:0;left:50%;
+  width:1px;background:rgba(255,255,255,0.08);z-index:5;
+}
+.oe-panel-tag{
+  font-size:0.6875rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:#f1ae62;font-weight:500;margin-bottom:1.25rem;
+}
+.oe-panel-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.25rem,3.5vw,3.25rem);
+  font-weight:300;color:#fff;line-height:1.1;margin-bottom:1.5rem;
+}
+.oe-panel-title em{font-style:italic;color:#f1ae62;}
+.oe-panel-sub{font-size:0.9375rem;line-height:1.8;color:rgba(255,255,255,0.45);max-width:380px;margin-bottom:2rem;}
+.oe-panel-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#f1ae62;color:#fff;
+  padding:12px 24px;border-radius:6px;
+  font-size:0.8125rem;font-weight:500;text-decoration:none;
+  transition:transform 0.2s,box-shadow 0.2s;width:fit-content;
+}
+.oe-panel-cta:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(241,174,98,0.35);}
+.oe-panel-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:rgba(255,255,255,0.5);
+  padding:12px 24px;border-radius:6px;
+  border:1px solid rgba(255,255,255,0.15);
+  font-size:0.8125rem;text-decoration:none;margin-left:10px;
+  transition:all 0.2s;
+}
+.oe-panel-ghost:hover{border-color:rgba(255,255,255,0.4);color:#fff;}
+.oe-hero-back{
+  position:absolute;top:80px;left:1.5rem;
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;z-index:10;
+}
+.oe-hero-back:hover{color:#f1ae62;}
+.oe-geo-circle{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(241,174,98,0.06);pointer-events:none;
+}
+
+/* ── SECTION VISIBILITY ── */
+.oe-section{display:none;}
+.oe-section.visible{display:block;}
+
+/* ── BOARDING SECTION ── */
+.bs-problem{
+  padding:7rem 5rem;background:#F8F7F4;
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;
+}
+.bs-problem-list{list-style:none;margin-top:1.5rem;}
+.bs-problem-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:1rem 0;border-bottom:1px solid rgba(0,58,102,0.08);
+  font-size:0.9rem;color:#6b7280;line-height:1.65;
+}
+.bs-problem-item:last-child{border-bottom:none;}
+.bs-problem-item::before{content:'↳';color:#f1ae62;flex-shrink:0;font-weight:500;}
+
+.bs-start-box{
+  background:#fff;border:1px solid rgba(0,58,102,0.1);
+  border-radius:14px;padding:2.5rem;
+}
+.bs-start-box h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.375rem;font-weight:300;font-style:italic;color:#003A66;margin-bottom:1.5rem;
+}
+.bs-start-item{
+  display:flex;gap:10px;padding:0.75rem 0;
+  border-bottom:1px solid rgba(0,58,102,0.07);
+  font-size:0.875rem;color:#6b7280;line-height:1.65;align-items:flex-start;
+}
+.bs-start-item:last-child{border-bottom:none;}
+.bs-start-item::before{content:'→';color:#f1ae62;flex-shrink:0;font-weight:500;}
+
+.bs-program{padding:7rem 5rem;background:#fff;}
+.bs-program-hd{text-align:center;margin-bottom:5rem;}
+.bs-program-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.25rem;max-width:1100px;margin:0 auto;
+}
+.bs-prog-card{
+  border:1px solid rgba(0,58,102,0.1);border-radius:12px;
+  padding:2rem 1.5rem;text-align:center;
+  transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;
+}
+.bs-prog-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(0,58,102,0.1);
+  border-color:rgba(241,174,98,0.4);
+}
+.bs-prog-icon{font-size:1.75rem;margin-bottom:1rem;}
+.bs-prog-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:400;color:#003A66;margin-bottom:0.5rem;
+}
+.bs-prog-desc{font-size:0.8125rem;color:#6b7280;line-height:1.65;}
+
+.bs-parents{padding:7rem 5rem;background:#003A66;}
+.bs-parents-inner{
+  max-width:860px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+}
+.bs-parents h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3vw,2.75rem);font-weight:300;color:#fff;line-height:1.2;
+}
+.bs-parents h2 em{font-style:italic;color:#f1ae62;}
+.bs-parents-note{
+  font-size:0.9rem;color:rgba(255,255,255,0.4);line-height:1.8;margin-top:1rem;
+}
+.bs-value-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.bs-value-item:last-child{border-bottom:none;}
+.bs-value-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+.bs-value-text{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.65;}
+
+/* ── UNI SECTION ── */
+.uni-gap{
+  padding:7rem 5rem;background:#fff;
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;
+}
+.uni-gap-list{list-style:none;margin-top:1.5rem;}
+.uni-gap-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:1rem 0;border-bottom:1px solid rgba(0,58,102,0.08);
+  font-size:0.9rem;color:#6b7280;line-height:1.65;
+}
+.uni-gap-item:last-child{border-bottom:none;}
+.uni-gap-item::before{content:'✗';color:rgba(241,174,98,0.5);flex-shrink:0;font-size:0.8rem;}
+.uni-start-box{
+  background:#F8F7F4;border-radius:14px;padding:2.5rem;
+}
+.uni-start-box h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.375rem;font-weight:300;font-style:italic;color:#003A66;margin-bottom:1.5rem;
+}
+.uni-start-item{
+  display:flex;gap:10px;padding:0.75rem 0;
+  border-bottom:1px solid rgba(0,58,102,0.07);
+  font-size:0.875rem;color:#6b7280;line-height:1.65;align-items:flex-start;
+}
+.uni-start-item:last-child{border-bottom:none;}
+.uni-start-item::before{content:'→';color:#f1ae62;flex-shrink:0;font-weight:500;}
+
+.uni-gains{padding:7rem 5rem;background:#F8F7F4;}
+.uni-gains-hd{text-align:center;margin-bottom:5rem;}
+.uni-gains-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2rem;max-width:900px;margin:0 auto;
+}
+.uni-gain-card{
+  background:#fff;border:1px solid rgba(0,58,102,0.1);
+  border-radius:12px;padding:2rem;
+  transition:border-color 0.25s,transform 0.25s;
+}
+.uni-gain-card:hover{border-color:rgba(241,174,98,0.4);transform:translateY(-3px);}
+.uni-gain-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.25rem;font-weight:300;font-style:italic;
+  color:#f1ae62;line-height:1;margin-bottom:0.75rem;
+}
+.uni-gain-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:400;color:#003A66;margin-bottom:0.5rem;
+}
+.uni-gain-desc{font-size:0.8125rem;color:#6b7280;line-height:1.65;}
+
+.uni-sim{padding:7rem 5rem;background:#003A66;}
+.uni-sim-inner{max-width:1000px;margin:0 auto;}
+.uni-sim-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:3rem;align-items:start;margin-top:4rem;
+}
+.uni-sim-col h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.375rem;font-weight:300;font-style:italic;
+  color:#fff;margin-bottom:1.25rem;
+}
+.uni-sim-item{
+  display:flex;gap:10px;padding:0.75rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  font-size:0.875rem;color:rgba(255,255,255,0.5);line-height:1.65;
+}
+.uni-sim-item:last-child{border-bottom:none;}
+.uni-sim-item::before{content:'→';color:#f1ae62;flex-shrink:0;font-weight:500;}
+
+/* ── SHARED RESULT SECTION ── */
+.oe-result{padding:7rem 5rem;background:#001f40;}
+.oe-result-inner{max-width:800px;margin:0 auto;text-align:center;}
+.oe-result-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,3.25rem);font-weight:300;font-style:italic;
+  color:#fff;line-height:1.3;margin-bottom:5rem;
+}
+.oe-result-quote em{color:#f1ae62;font-style:normal;}
+.oe-demo-box{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:14px;padding:3rem;text-align:left;
+}
+.oe-demo-box h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.625rem;font-style:italic;font-weight:300;
+  color:#fff;margin-bottom:2rem;
+}
+.oe-demo-li{
+  display:flex;gap:12px;padding:0.75rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.6;
+}
+.oe-demo-li:last-child{border-bottom:none;}
+.oe-demo-li::before{content:'✓';color:#f1ae62;flex-shrink:0;font-weight:500;}
+.oe-demo-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;}
+.oe-btn-a{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#f1ae62;color:#fff;padding:14px 28px;border-radius:6px;
+  font-size:0.875rem;font-weight:500;text-decoration:none;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.oe-btn-a:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(241,174,98,0.4);}
+.oe-btn-b{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:rgba(255,255,255,0.55);
+  padding:14px 28px;border-radius:6px;
+  border:1px solid rgba(255,255,255,0.15);
+  font-size:0.875rem;text-decoration:none;transition:all 0.2s;
+}
+.oe-btn-b:hover{border-color:rgba(255,255,255,0.4);color:#fff;}
+
+@media(max-width:900px){
+  .oe-hero{grid-template-columns:1fr;}
+  .oe-hero-divider{display:none;}
+  .oe-hero-panel.dim{opacity:1;transform:none;}
+  .bs-problem,.uni-gap,.bs-parents-inner,.uni-sim-grid,.uni-gains-grid,.bs-program-grid{grid-template-columns:1fr;}
+  .bs-problem,.uni-gap,.bs-program,.uni-gains,.bs-parents,.uni-sim,.oe-result{padding:5rem 2rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo-only">
+      <div class="logo-mark-lg"><img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" onerror="this.style.display='none'"/><span class="logo-fb-lg">C</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Ana Sayfa</a></li>
+      <li class="nav-dropdown">
+        <a href="../programs.html" class="nav-dropdown-toggle">Programlar ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="professional.html">Professional English</a>
+          <a href="speaking-fluency.html">Fluency &amp; Confidence</a>
+          <a href="travel-daily.html">Travel &amp; Daily English</a>
+          <a href="overseas-education.html">Overseas Education</a>
+          <a href="fluency.html">Fluency &amp; Özgüven</a>
+        </div>
+      </li>
+      <li><a href="../about.html">Hakkımızda</a></li>
+      <li><a href="../community.html">Topluluk</a></li>
+      <li><a href="../contact.html">İletişim</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+      <a href="../contact.html" class="btn-nav">Ücretsiz Demo</a>
+      <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Ana Sayfa</a>
+  <a href="../programs.html">Programlar</a>
+  <a href="../about.html">Hakkımızda</a>
+  <a href="../community.html">Topluluk</a>
+  <a href="../contact.html">İletişim</a>
+  <div class="mobile-menu-bottom">
+    <a href="../contact.html" class="btn-primary">Ücretsiz Demo</a>
+    <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+  </div>
+</div>
+
+<!-- HERO: SPLIT — both audiences shown together -->
+<section class="oe-hero" id="oeHero">
+  <a href="../programs.html" class="oe-hero-back">← Tüm Programlar</a>
+  <div class="oe-geo-circle" style="width:500px;height:500px;top:-150px;left:-100px;"></div>
+  <div class="oe-geo-circle" style="width:250px;height:250px;bottom:-80px;right:40%;"></div>
+  <div class="oe-hero-divider"></div>
+
+  <!-- Boarding panel -->
+  <div class="oe-hero-panel oe-boarding" id="panelBoarding">
+    <p class="oe-panel-tag">Boarding School — Veliler İçin</p>
+    <h1 class="oe-panel-title">Başvuru değil —<br><em>kabul edilme hazırlığı.</em></h1>
+    <p class="oe-panel-sub">İngilizce var, ama kendini ifade yok. Mülakatta donma. Ezber cevaplar. Bu programda çocuk sadece hazırlanmaz — özgüveni gelişir.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <a href="#boarding-content" class="oe-panel-cta" onclick="switchTo('boarding')">Boarding School Programı →</a>
+    </div>
+  </div>
+
+  <!-- Uni panel -->
+  <div class="oe-hero-panel oe-uni" id="panelUni">
+    <p class="oe-panel-tag">Üniversite &amp; Yetişkin Başvurucular</p>
+    <h1 class="oe-panel-title">İngilizce yetmez —<br><em>nasıl düşündüğünüz belirler.</em></h1>
+    <p class="oe-panel-sub">Başvuranların çoğu İngilizce biliyor. Ama net konuşamıyor, yapı kuramıyor, etkili ifade edemiyor. Bu programda fark yaratırsınız.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <a href="#uni-content" class="oe-panel-cta" onclick="switchTo('uni')">Üniversite Programı →</a>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE SWITCHER (sticky) -->
+<div class="oe-switch-bar">
+  <div class="oe-switch-inner">
+    <button class="oe-switch-btn active" id="btnBoarding" onclick="switchTo('boarding')">
+      🏫 Boarding School
+    </button>
+    <button class="oe-switch-btn" id="btnUni" onclick="switchTo('uni')">
+      🎓 Üniversite &amp; Yetişkin
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- BOARDING SECTION                        -->
+<!-- ═══════════════════════════════════════ -->
+<div id="boarding-content" class="oe-section visible">
+
+  <section class="bs-problem">
+    <div>
+      <p class="oe-slabel sr">Gerçek problem</p>
+      <h2 class="oe-stitle sr sr-d1">İngilizce var —<br><em>ama ifade yok.</em></h2>
+      <p class="oe-sbody sr sr-d2">Mülakat salonunda dil bilgisi değil, kendinizi ifade edip edemediğiniz sorgulanır. Hazırlık tam olarak bunun üzerine kurulur.</p>
+      <ul class="bs-problem-list sr sr-d3">
+        <li class="bs-problem-item">Mülakatta donma ve boşluğa bakma</li>
+        <li class="bs-problem-item">Ezber cevaplar — özgün ifade eksikliği</li>
+        <li class="bs-problem-item">Kendine güven sorusu gelince ses kısılması</li>
+        <li class="bs-problem-item">Hızlı konuşulan soruda kaybolma</li>
+      </ul>
+    </div>
+    <div class="bs-start-box sr sr-d2">
+      <h3>Nasıl başlıyoruz?</h3>
+      <div class="bs-start-item">Öğrencinin seviyesi analiz edilir</div>
+      <div class="bs-start-item">Özgüveni ve ifade gücü değerlendirilir</div>
+      <div class="bs-start-item">Hedef okul ve mülakat formatı belirlenir</div>
+      <div class="bs-start-item">Kişisel program oluşturulur</div>
+      <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(0,58,102,0.08);">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.125rem;font-style:italic;font-weight:300;color:#003A66;line-height:1.5;">Hazırlık mülakata değil —<br>kabul edilmeye yönelik.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bs-program">
+    <div class="bs-program-hd">
+      <p class="oe-slabel sr">Programda ne yapılır?</p>
+      <h2 class="oe-stitle sr sr-d1" style="text-align:center;">Dört temel odak.</h2>
+    </div>
+    <div class="bs-program-grid">
+      <div class="bs-prog-card sr sr-d1">
+        <div class="bs-prog-icon">🧩</div>
+        <p class="bs-prog-title">Kişisel Hikaye</p>
+        <p class="bs-prog-desc">Kim olduğunu, ne istediğini ve neden bu okul — bunu özgün ve inandırıcı biçimde anlatabilmek.</p>
+      </div>
+      <div class="bs-prog-card sr sr-d2">
+        <div class="bs-prog-icon">💬</div>
+        <p class="bs-prog-title">Doğal İfade</p>
+        <p class="bs-prog-desc">Ezber kalıplar değil, gerçek düşünceyi aktaran doğal dil. Mülakatçılar farkı anlık hisseder.</p>
+      </div>
+      <div class="bs-prog-card sr sr-d3">
+        <div class="bs-prog-icon">🧠</div>
+        <p class="bs-prog-title">Düşünerek Konuşma</p>
+        <p class="bs-prog-desc">Zaman kazanma, yapılandırılmış cevap, belirsiz sorudan çıkış. Critical thinking dili.</p>
+      </div>
+      <div class="bs-prog-card sr sr-d4">
+        <div class="bs-prog-icon">🎯</div>
+        <p class="bs-prog-title">Mülakat Simülasyonu</p>
+        <p class="bs-prog-desc">Gerçek tempo, beklenmeyen sorular, baskı altında konuşma. Detaylı geri bildirimle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bs-parents">
+    <div class="bs-parents-inner">
+      <div>
+        <p class="oe-slabel sr" style="color:rgba(241,174,98,0.7);">Veliler için önemli</p>
+        <h2 class="sr sr-d1">Bu sadece<br><em>dil değil.</em></h2>
+        <p class="bs-parents-note sr sr-d2">Boarding school süreci çocuk için yüksek baskılı bir deneyimdir. Dil hazırlığı kadar psikolojik hazırlık da gerekir.</p>
+      </div>
+      <div class="sr sr-d2">
+        <div class="bs-value-item"><span class="bs-value-icon">🤝</span><p class="bs-value-text"><strong style="color:#fff;font-weight:400;">Özgüven</strong> — Yabancı bir ortamda kendinizi ifade edebilmek</p></div>
+        <div class="bs-value-item"><span class="bs-value-icon">🌍</span><p class="bs-value-text"><strong style="color:#fff;font-weight:400;">Sosyal uyum</strong> — Yeni çevrede hızla yerini bulabilmek</p></div>
+        <div class="bs-value-item"><span class="bs-value-icon">✨</span><p class="bs-value-text"><strong style="color:#fff;font-weight:400;">İfade gücü</strong> — Hem mülakatta hem okul hayatında</p></div>
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;">Çocuk ne söyleyeceğini bilir —<br>ve söyleyebilir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oe-result">
+    <div class="oe-result-inner">
+      <p class="oe-slabel sr" style="color:rgba(241,174,98,0.5);">Sonuç</p>
+      <p class="oe-result-quote sr sr-d1">Çocuk ne söyleyeceğini bilir —<br><em>ve söyleyebilir.</em></p>
+      <div class="oe-demo-box sr sr-d2">
+        <h3>Demo sonrası ne olur?</h3>
+        <div class="oe-demo-li">Mevcut seviye ve ifade gücü analiz edilir</div>
+        <div class="oe-demo-li">Hedef okul için spesifik plan çizilir</div>
+        <div class="oe-demo-li">Takvim ve tempo belirlenir</div>
+        <div class="oe-demo-li">Devam kararı size bırakılır</div>
+        <div class="oe-demo-actions">
+          <a href="../contact.html" class="oe-btn-a">Ücretsiz Demo Planla →</a>
+          <a href="#uni-content" class="oe-btn-b" onclick="switchTo('uni')">Üniversite Programı</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /boarding -->
+
+<!-- ═══════════════════════════════════════ -->
+<!-- UNIVERSITY / ADULT SECTION              -->
+<!-- ═══════════════════════════════════════ -->
+<div id="uni-content" class="oe-section">
+
+  <section class="uni-gap">
+    <div>
+      <p class="oe-slabel sr">Gerçek fark</p>
+      <h2 class="oe-stitle sr sr-d1">Bilmek yetmez —<br><em>nasıl sunduğunuz belirler.</em></h2>
+      <p class="oe-sbody sr sr-d2">Başvuranların çoğu İngilizce biliyor. Mülakatı geçen, bunu etkili aktarabilen.</p>
+      <ul class="uni-gap-list sr sr-d3">
+        <li class="uni-gap-item">Net konuşamıyor</li>
+        <li class="uni-gap-item">Yapı kuramıyor</li>
+        <li class="uni-gap-item">Etkili ifade edemiyor</li>
+      </ul>
+    </div>
+    <div class="uni-start-box sr sr-d2">
+      <h3>Nasıl başlıyoruz?</h3>
+      <div class="uni-start-item">Seviye ve ifade analizi yapılır</div>
+      <div class="uni-start-item">Hedef program ve mülakat formatı belirlenir</div>
+      <div class="uni-start-item">Kişisel strateji oluşturulur</div>
+      <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(0,58,102,0.08);">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.125rem;font-style:italic;font-weight:300;color:#003A66;line-height:1.5;">İngilizce öğrenmiyorsunuz —<br>onu silah olarak kullanmayı öğreniyorsunuz.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="uni-gains">
+    <div class="uni-gains-hd">
+      <p class="oe-slabel sr">Bu programda ne kazanırsınız?</p>
+      <h2 class="oe-stitle sr sr-d1" style="text-align:center;">Dört temel<br><em>kazanım.</em></h2>
+    </div>
+    <div class="uni-gains-grid">
+      <div class="uni-gain-card sr sr-d1">
+        <p class="uni-gain-num">01</p>
+        <p class="uni-gain-title">Fikir Geliştirme</p>
+        <p class="uni-gain-desc">Ham bir düşünceyi çabucak organize edip sunabilmek. "Let me think about that…" ile başlayıp güçlü bir cevaba ulaşmak.</p>
+      </div>
+      <div class="uni-gain-card sr sr-d2">
+        <p class="uni-gain-num">02</p>
+        <p class="uni-gain-title">Yapı Kurma</p>
+        <p class="uni-gain-desc">Giriş, gelişme, sonuç — sadece yazıda değil, konuşmada da. Mülakatçıya takip edilmesi kolay bir akış vermek.</p>
+      </div>
+      <div class="uni-gain-card sr sr-d3">
+        <p class="uni-gain-num">03</p>
+        <p class="uni-gain-title">Akademik İfade</p>
+        <p class="uni-gain-desc">Kanıt gösterme, karşı görüşü ele alma, netleştirme. Akademik konuşmanın temel dil araçları.</p>
+      </div>
+      <div class="uni-gain-card sr sr-d4">
+        <p class="uni-gain-num">04</p>
+        <p class="uni-gain-title">Mülakat Kontrolü</p>
+        <p class="uni-gain-desc">Baskı altında konuşabilmek. Zorlu sorudan çıkış, zaman kazanma, cevabı net kapatma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="uni-sim">
+    <div class="uni-sim-inner">
+      <p class="oe-slabel sr" style="color:rgba(241,174,98,0.7);">Gerçek beceriler &amp; simülasyonlar</p>
+      <h2 class="sr sr-d1" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.75rem);font-weight:300;color:#fff;line-height:1.2;">Teoride değil —<br><em>baskı altında çalışır.</em></h2>
+      <div class="uni-sim-grid sr sr-d2">
+        <div class="uni-sim-col">
+          <h3>Kritik dil araçları</h3>
+          <div class="uni-sim-item">"Let me think…" ile zaman kazanma</div>
+          <div class="uni-sim-item">Yapılandırılmış cevap kurma</div>
+          <div class="uni-sim-item">Karşı görüşü kabul edip yönlendirme</div>
+          <div class="uni-sim-item">Net ve güçlü kapanış</div>
+        </div>
+        <div class="uni-sim-col">
+          <h3>Simülasyon formatı</h3>
+          <div class="uni-sim-item">Gerçek tempo — beklenmeyen sorular</div>
+          <div class="uni-sim-item">Baskı altında konuşma pratiği</div>
+          <div class="uni-sim-item">Detaylı ve dürüst geri bildirim</div>
+          <div class="uni-sim-item">Her turda revize ve tekrar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oe-result">
+    <div class="oe-result-inner">
+      <p class="oe-slabel sr" style="color:rgba(241,174,98,0.5);">Sonuç</p>
+      <p class="oe-result-quote sr sr-d1">Sadece cevap vermezsiniz —<br><em>etkili konuşursunuz.</em></p>
+      <div class="oe-demo-box sr sr-d2">
+        <h3>Demo sonrası ne olur?</h3>
+        <div class="oe-demo-li">Eksikler net gösterilir</div>
+        <div class="oe-demo-li">Başvuru stratejisi çizilir</div>
+        <div class="oe-demo-li">Öncelikli çalışma alanları belirlenir</div>
+        <div class="oe-demo-li">Devam kararı size bırakılır</div>
+        <div class="oe-demo-actions">
+          <a href="../contact.html" class="oe-btn-a">Ücretsiz Demo Planla →</a>
+          <a href="#boarding-content" class="oe-btn-b" onclick="switchTo('boarding')">Boarding School Programı</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /uni -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="margin-bottom:1rem;"><div style="width:200px;overflow:hidden;display:flex;align-items:center;"><img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" style="width:200px;height:auto;object-fit:contain;" onerror="this.style.display='none'"/></div></div>
+      <p>Nöropskoloji ve öğrenme psikolojisi temelli, birebir İngilizce eğitimi. Kozyatağı, Kadıköy.</p>
+    </div>
+    <div class="footer-col"><h4>Programlar</h4><ul>
+      <li><a href="professional.html">Professional English</a></li>
+      <li><a href="speaking-fluency.html">Fluency &amp; Confidence</a></li>
+      <li><a href="travel-daily.html">Travel &amp; Daily English</a></li>
+      <li><a href="overseas-education.html">Overseas Education</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>İletişim</h4><ul>
+      <li><a href="../contact.html">Demo Ders Ayarla</a></li>
+      <li><a href="https://wa.me/905318711374" target="_blank" rel="noopener">WhatsApp ile Yaz</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Cozy English. Tüm hakları saklıdır.</span><span>Kozyatağı, Kadıköy — İstanbul</span></div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+// ── Audience switcher ──
+function switchTo(audience) {
+  var isBoarding = audience === 'boarding';
+
+  // Toggle sections
+  document.getElementById('boarding-content').classList.toggle('visible', isBoarding);
+  document.getElementById('uni-content').classList.toggle('visible', !isBoarding);
+
+  // Toggle sticky buttons
+  document.getElementById('btnBoarding').classList.toggle('active', isBoarding);
+  document.getElementById('btnUni').classList.toggle('active', !isBoarding);
+
+  // Dim the non-active hero panel
+  document.getElementById('panelBoarding').classList.toggle('dim', !isBoarding);
+  document.getElementById('panelUni').classList.toggle('dim', isBoarding);
+
+  // Re-run scroll reveal for newly visible section
+  setTimeout(function(){
+    document.querySelectorAll('.sr:not(.in)').forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight * 0.9) el.classList.add('in');
+    });
+  }, 50);
+}
+
+// ── Scroll reveal ──
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.08});
+  document.querySelectorAll('.sr').forEach(function(el){ io.observe(el); });
+})();
+
+// Check URL hash on load
+(function(){
+  if(window.location.hash === '#uni-content') switchTo('uni');
+})();
+</script>
+</body>
+</html>
