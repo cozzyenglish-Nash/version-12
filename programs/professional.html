@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Professional English — Cozy English</title>
+<link rel="icon" href="../cozy-favicon.png.png" type="image/png"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<style>
+/* ── PROFESSIONAL PAGE STYLES ── */
+.ph-hero{
+  min-height:100vh;
+  background:#003A66;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  overflow:hidden;
+}
+.ph-geo-circle{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(241,174,98,0.07);
+  pointer-events:none;
+}
+.ph-hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:8rem 4rem 6rem 5rem;position:relative;z-index:2;
+}
+.ph-back{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);text-decoration:none;
+  margin-bottom:3rem;transition:color 0.2s;
+}
+.ph-back:hover{color:#f1ae62;}
+.ph-tag{
+  font-size:0.6875rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:#f1ae62;font-weight:500;margin-bottom:1.5rem;
+}
+.ph-hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.5rem,4vw,3.75rem);
+  font-weight:300;color:#fff;line-height:1.1;margin-bottom:2rem;
+}
+.ph-hero-title em{font-style:italic;color:#f1ae62;}
+.ph-hero-sub{
+  font-size:1rem;line-height:1.85;
+  color:rgba(255,255,255,0.5);max-width:420px;margin-bottom:3rem;
+}
+.ph-cta-hero{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#f1ae62;color:#fff;
+  padding:14px 28px;border-radius:6px;
+  font-size:0.875rem;font-weight:500;text-decoration:none;
+  transition:transform 0.2s,box-shadow 0.2s;width:fit-content;
+}
+.ph-cta-hero:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(241,174,98,0.35);}
+.ph-hero-right{
+  display:flex;align-items:center;justify-content:center;
+  padding:4rem;position:relative;z-index:2;
+}
+.pain-wrap{width:100%;max-width:380px;}
+.pain-item{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.07);
+  border-left:3px solid #f1ae62;
+  border-radius:10px;padding:1.25rem 1.5rem;
+  margin-bottom:1rem;
+  opacity:0;transform:translateX(30px);
+  transition:opacity 0.6s ease,transform 0.6s ease;
+}
+.pain-item.vis{opacity:1;transform:translateX(0);}
+.pain-label{font-size:0.625rem;letter-spacing:0.15em;text-transform:uppercase;color:#f1ae62;margin-bottom:0.4rem;}
+.pain-item p{font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.65);}
+
+/* Scroll reveal */
+.sr{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.sr.in{opacity:1;transform:translateY(0);}
+.sr-d1{transition-delay:0.1s;}.sr-d2{transition-delay:0.2s;}.sr-d3{transition-delay:0.3s;}.sr-d4{transition-delay:0.4s;}
+
+/* Diagnosis */
+.ph-diag{
+  padding:7rem 5rem;background:#F8F7F4;
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;
+}
+.ph-slabel{font-size:0.625rem;letter-spacing:0.2em;text-transform:uppercase;color:#f1ae62;font-weight:500;margin-bottom:1rem;}
+.ph-stitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.875rem,3vw,2.625rem);font-weight:300;line-height:1.15;
+  color:#003A66;margin-bottom:1.5rem;
+}
+.ph-stitle em{font-style:italic;}
+.ph-sbody{font-size:0.9375rem;line-height:1.85;color:#6b7280;margin-bottom:1.5rem;}
+.ph-steps{list-style:none;}
+.ph-step{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(0,58,102,0.1);align-items:flex-start;}
+.ph-step:last-child{border-bottom:none;}
+.ph-step-num{
+  width:28px;height:28px;border-radius:50%;
+  background:#003A66;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.6875rem;font-weight:500;flex-shrink:0;margin-top:2px;
+}
+.ph-step p{font-size:0.9rem;color:#6b7280;line-height:1.7;}
+.ph-adaptive{background:#003A66;border-radius:14px;padding:2.5rem;color:#fff;}
+.ph-adaptive h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;font-style:italic;color:#fff;margin-bottom:1rem;}
+.ph-adapt-item{
+  display:flex;gap:10px;padding:0.65rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.6;
+}
+.ph-adapt-item:last-of-type{border-bottom:none;}
+.ph-adapt-item::before{content:'→';color:#f1ae62;flex-shrink:0;font-weight:500;}
+
+/* Focus section */
+.ph-focus{padding:7rem 5rem;background:#fff;}
+.ph-focus-hd{text-align:center;margin-bottom:5rem;}
+.ph-focus-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.ph-fcard{border:1px solid rgba(0,58,102,0.1);border-radius:16px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;}
+.ph-fcard:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,58,102,0.1);}
+.ph-fcard-hd{background:#003A66;padding:2rem 2.25rem;}
+.ph-fcard-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.1);line-height:1;margin-bottom:0.5rem;}
+.ph-fcard-title{font-family:'Cormorant Garamond',serif;font-size:1.375rem;font-weight:400;color:#fff;line-height:1.3;}
+.ph-fcard-body{padding:2rem 2.25rem;}
+.ph-skill{display:flex;align-items:center;gap:10px;padding:0.6rem 0;border-bottom:1px solid rgba(0,58,102,0.08);font-size:0.875rem;color:#6b7280;}
+.ph-skill:last-child{border-bottom:none;}
+.ph-skill::before{content:'';width:6px;height:6px;border-radius:50%;background:#f1ae62;flex-shrink:0;}
+.ph-sector-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem;}
+.ph-stab{
+  padding:5px 16px;border-radius:20px;
+  border:1px solid rgba(0,58,102,0.12);background:transparent;
+  font-size:0.8rem;color:#6b7280;cursor:pointer;
+  transition:all 0.2s;font-family:'Outfit',sans-serif;
+}
+.ph-stab.active,.ph-stab:hover{background:#003A66;color:#fff;border-color:#003A66;}
+.ph-sc{display:none;animation:fadeIn 0.3s ease;}
+.ph-sc.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.ph-phrase{
+  background:#F8F7F4;border-radius:8px;padding:0.875rem 1.1rem;
+  font-size:0.875rem;font-style:italic;color:#003A66;
+  margin-bottom:0.6rem;border-left:3px solid #f1ae62;
+}
+.ph-phrase-lbl{font-size:0.6875rem;letter-spacing:0.08em;color:#6b7280;font-style:normal;display:block;margin-bottom:2px;}
+
+/* Results */
+.ph-results{padding:7rem 5rem;background:#003A66;}
+.ph-results-inner{max-width:900px;margin:0 auto;text-align:center;}
+.ph-rtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);font-weight:300;color:#fff;line-height:1.2;margin-bottom:1rem;}
+.ph-rtitle em{font-style:italic;color:#f1ae62;}
+.ph-tl{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:14px;overflow:hidden;margin:4rem 0;
+}
+.ph-tl-item{background:#001f40;padding:2.5rem 2rem;text-align:center;}
+.ph-tl-lbl{font-size:0.6875rem;letter-spacing:0.15em;text-transform:uppercase;color:#f1ae62;margin-bottom:1rem;}
+.ph-tl-txt{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;font-weight:400;color:#fff;line-height:1.4;}
+.ph-outro{font-family:'Cormorant Garamond',serif;font-size:1.625rem;font-style:italic;font-weight:300;color:rgba(255,255,255,0.4);margin-bottom:4rem;line-height:1.5;}
+.ph-demo-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:3rem;text-align:left;}
+.ph-demo-box h3{font-family:'Cormorant Garamond',serif;font-size:1.625rem;font-style:italic;font-weight:300;color:#fff;margin-bottom:2rem;}
+.ph-demo-li{display:flex;gap:12px;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.6;}
+.ph-demo-li:last-child{border-bottom:none;}
+.ph-demo-li::before{content:'✓';color:#f1ae62;flex-shrink:0;font-weight:500;}
+.ph-demo-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;}
+.ph-btn-a{display:inline-flex;align-items:center;gap:8px;background:#f1ae62;color:#fff;padding:14px 28px;border-radius:6px;font-size:0.875rem;font-weight:500;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;}
+.ph-btn-a:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(241,174,98,0.4);}
+.ph-btn-b{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,0.55);padding:14px 28px;border-radius:6px;border:1px solid rgba(255,255,255,0.15);font-size:0.875rem;font-weight:400;text-decoration:none;transition:all 0.2s;}
+.ph-btn-b:hover{border-color:rgba(255,255,255,0.4);color:#fff;}
+
+@media(max-width:900px){
+  .ph-hero,.ph-diag,.ph-focus-grid,.ph-tl{grid-template-columns:1fr;}
+  .ph-hero-right{display:none;}
+  .ph-hero-left,.ph-diag,.ph-focus,.ph-results{padding:5rem 2rem;}
+  .ph-diag{gap:3rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo-only">
+      <div class="logo-mark-lg"><img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" onerror="this.style.display='none'"/><span class="logo-fb-lg">C</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Ana Sayfa</a></li>
+      <li class="nav-dropdown">
+        <a href="../programs.html" class="nav-dropdown-toggle">Programlar ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="professional.html">Professional English</a>
+          <a href="conversational.html">Conversational &amp; Fluency</a>
+          <a href="travel.html">Travel &amp; International</a>
+          <a href="fluency.html">Fluency &amp; Özgüven</a>
+          <a href="overseas.html">Yurt Dışı Eğitim</a>
+        </div>
+      </li>
+      <li><a href="../about.html">Hakkımızda</a></li>
+      <li><a href="../community.html">Topluluk</a></li>
+      <li><a href="../contact.html">İletişim</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+      <a href="../contact.html" class="btn-nav">Ücretsiz Demo</a>
+      <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Ana Sayfa</a>
+  <a href="../programs.html">Programlar</a>
+  <a href="../about.html">Hakkımızda</a>
+  <a href="../community.html">Topluluk</a>
+  <a href="../contact.html">İletişim</a>
+  <div class="mobile-menu-bottom">
+    <a href="../contact.html" class="btn-primary">Ücretsiz Demo</a>
+    <div class="lang-toggle"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="ph-hero">
+  <div class="ph-geo-circle" style="width:600px;height:600px;top:-200px;right:5%;"></div>
+  <div class="ph-geo-circle" style="width:300px;height:300px;bottom:-100px;left:35%;"></div>
+  <div class="ph-geo-circle" style="width:100px;height:100px;top:45%;right:18%;"></div>
+
+  <div class="ph-hero-left">
+    <a href="../programs.html" class="ph-back">← Tüm Programlar</a>
+    <p class="ph-tag">Professional English</p>
+    <h1 class="ph-hero-title">
+      İngilizce bilmek değil —<br><em>doğru anda kullanmak.</em>
+    </h1>
+    <p class="ph-hero-sub">Toplantıda fikriniz var ama söyleyemiyorsunuz. Cümleyi kurana kadar an geçiyor. Bu program, bildiğiniz İngilizceyi gerçek iş ortamında kullanılabilir hale getirir.</p>
+    <a href="../contact.html" class="ph-cta-hero">Demo Dersi Planla →</a>
+  </div>
+
+  <div class="ph-hero-right">
+    <div class="pain-wrap">
+      <p class="ph-tag" style="margin-bottom:1.5rem;">Bu size tanıdık mı?</p>
+      <div class="pain-item">
+        <p class="pain-label">Senaryo 01</p>
+        <p>Toplantıda söyleyecek fikriniz oluyor ama doğru anı kaçırıyorsunuz.</p>
+      </div>
+      <div class="pain-item">
+        <p class="pain-label">Senaryo 02</p>
+        <p>Cümleyi mükemmel kurmaya çalışırken fırsat geçiyor.</p>
+      </div>
+      <div class="pain-item">
+        <p class="pain-label">Senaryo 03</p>
+        <p>İngilizce konuşurken Türkçede olduğunuz kadar net değilsiniz.</p>
+      </div>
+      <div class="pain-item">
+        <p class="pain-label">Senaryo 04</p>
+        <p>Basit söyleyebileceğiniz şeyi gereksiz karmaşık kuruyorsunuz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSIS -->
+<section class="ph-diag">
+  <div>
+    <p class="ph-slabel sr">Nasıl başlıyoruz?</p>
+    <h2 class="ph-stitle sr sr-d1">Her öğrenci için<br><em>süreç farklı başlar.</em></h2>
+    <p class="ph-sbody sr sr-d2">Başlamadan önce gerçekte nerede durduğunuzu görmek gerekir. Bunu konuşma üzerinden yaparız — form değil, gerçek diyalog.</p>
+    <ul class="ph-steps sr sr-d3">
+      <li class="ph-step"><div class="ph-step-num">1</div><p>Konuşma üzerinden gerçek seviye analizi yapılır</p></li>
+      <li class="ph-step"><div class="ph-step-num">2</div><p>Güçlü ve zayıf alanlar net şekilde çıkarılır</p></li>
+      <li class="ph-step"><div class="ph-step-num">3</div><p>İşiniz, rolünüz ve hedefleriniz analiz edilir</p></li>
+      <li class="ph-step"><div class="ph-step-num">4</div><p>Buna göre program sizin için oluşturulur</p></li>
+    </ul>
+  </div>
+  <div class="ph-adaptive sr sr-d2">
+    <h3>Program sabit değildir.</h3>
+    <div class="ph-adapt-item">Dersler ilerledikçe içerik değişir</div>
+    <div class="ph-adapt-item">Sizin iş senaryolarınıza göre şekillenir</div>
+    <div class="ph-adapt-item">Yeni ihtiyaçlar geldikçe adapte edilir</div>
+    <div style="height:1.5rem;border-top:1px solid rgba(255,255,255,0.08);margin-top:1rem;padding-top:1.5rem;">
+      <p style="font-size:0.625rem;letter-spacing:0.18em;text-transform:uppercase;color:#f1ae62;margin-bottom:0.75rem;">Amaç</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;font-weight:300;color:#fff;line-height:1.4;">Maksimum verim.<br>Minimum zaman kaybı.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DUAL FOCUS -->
+<section class="ph-focus">
+  <div class="ph-focus-hd">
+    <p class="ph-slabel sr">Program içeriği</p>
+    <h2 class="ph-stitle sr sr-d1" style="color:#003A66;">Program iki odakta<br><em>ilerler.</em></h2>
+  </div>
+  <div class="ph-focus-grid">
+    <div class="ph-fcard sr sr-d1">
+      <div class="ph-fcard-hd">
+        <div class="ph-fcard-num">01</div>
+        <p class="ph-fcard-title">Genel Profesyonel İngilizce</p>
+      </div>
+      <div class="ph-fcard-body">
+        <p style="font-size:0.8125rem;color:#6b7280;margin-bottom:1.25rem;line-height:1.7;">Her iş ortamında gerekli olan beceriler:</p>
+        <div class="ph-skill">Toplantıda söz alma ve konuşmayı yönlendirme</div>
+        <div class="ph-skill">Fikir sunma ve savunma</div>
+        <div class="ph-skill">Katılma / katılmama dili</div>
+        <div class="ph-skill">Netleştirme ve açıklama</div>
+        <div style="margin-top:1.5rem;">
+          <p style="font-size:0.6875rem;letter-spacing:0.12em;text-transform:uppercase;color:#f1ae62;margin-bottom:0.75rem;">Örnek ifadeler</p>
+          <div class="ph-phrase">"Can I add something here?"</div>
+          <div class="ph-phrase">"I think we should focus on…"</div>
+          <div class="ph-phrase">"I'm not sure I agree because…"</div>
+        </div>
+      </div>
+    </div>
+    <div class="ph-fcard sr sr-d2">
+      <div class="ph-fcard-hd">
+        <div class="ph-fcard-num">02</div>
+        <p class="ph-fcard-title">Sektör &amp; Rol Odaklı İngilizce</p>
+      </div>
+      <div class="ph-fcard-body">
+        <p style="font-size:0.8125rem;color:#6b7280;margin-bottom:1.25rem;line-height:1.7;">İçerik tamamen size göre şekillenir. Sektörünüzü seçin:</p>
+        <div class="ph-sector-tabs">
+          <button class="ph-stab active" data-s="yazilim">Yazılım / IT</button>
+          <button class="ph-stab" data-s="finans">Finans</button>
+          <button class="ph-stab" data-s="satis">Satış</button>
+          <button class="ph-stab" data-s="yonetici">Yönetici</button>
+        </div>
+        <div class="ph-sc active" id="sc-yazilim">
+          <div class="ph-phrase"><span class="ph-phrase-lbl">Teknik anlatım</span>"Let me simplify this — essentially what's happening is…"</div>
+          <div class="ph-phrase"><span class="ph-phrase-lbl">Issue açıklama</span>"The issue is that the system fails to handle edge cases when…"</div>
+        </div>
+        <div class="ph-sc" id="sc-finans">
+          <div class="ph-phrase"><span class="ph-phrase-lbl">Veri yorumlama</span>"Looking at the numbers, what stands out is…"</div>
+          <div class="ph-phrase"><span class="ph-phrase-lbl">Risk ifade etme</span>"There's a potential exposure here that we should flag…"</div>
+        </div>
+        <div class="ph-sc" id="sc-satis">
+          <div class="ph-phrase"><span class="ph-phrase-lbl">Ürün anlatma</span>"What sets this apart is how it addresses your specific challenge of…"</div>
+          <div class="ph-phrase"><span class="ph-phrase-lbl">İtiraz yönetme</span>"That's a fair point — let me address that directly…"</div>
+        </div>
+        <div class="ph-sc" id="sc-yonetici">
+          <div class="ph-phrase"><span class="ph-phrase-lbl">Geri bildirim</span>"I want to share some feedback — and I mean this constructively…"</div>
+          <div class="ph-phrase"><span class="ph-phrase-lbl">Karar yönlendirme</span>"Based on what we know, I'd recommend we move towards…"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="ph-results">
+  <div class="ph-results-inner">
+    <p class="ph-slabel sr" style="color:rgba(241,174,98,0.6);">Sonuçlar</p>
+    <h2 class="ph-rtitle sr sr-d1">2–3 hafta içinde<br><em>genelde şu değişir.</em></h2>
+    <div class="ph-tl sr sr-d2">
+      <div class="ph-tl-item"><p class="ph-tl-lbl">Değişim 01</p><p class="ph-tl-txt">Daha hızlı cümle kurarsınız</p></div>
+      <div class="ph-tl-item"><p class="ph-tl-lbl">Değişim 02</p><p class="ph-tl-txt">Daha az duraksarsınız</p></div>
+      <div class="ph-tl-item"><p class="ph-tl-lbl">Değişim 03</p><p class="ph-tl-txt">Daha net konuşursunuz</p></div>
+    </div>
+    <p class="ph-outro sr sr-d3">Konuşurken beklemezsiniz.<br>Toplantıda sessiz kalmazsınız.</p>
+    <div class="ph-demo-box sr sr-d4">
+      <h3>Demo sonrası ne olur?</h3>
+      <div class="ph-demo-li">Seviyeniz analiz edilir</div>
+      <div class="ph-demo-li">Net bir yol çizilir</div>
+      <div class="ph-demo-li">Zorlanacağınız noktalar gösterilir</div>
+      <div class="ph-demo-li">Devam edip etmeme kararı size bırakılır</div>
+      <div class="ph-demo-actions">
+        <a href="../contact.html" class="ph-btn-a">Ücretsiz Demo Planla →</a>
+        <a href="../programs.html" class="ph-btn-b">Diğer Programlar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="margin-bottom:1rem;"><div style="width:200px;overflow:hidden;display:flex;align-items:center;"><img class="logo-img-slot" src="../cozy-favicon.png.png" alt="Cozy English" style="width:200px;height:auto;object-fit:contain;" onerror="this.style.display='none'"/></div></div>
+      <p>Nöropskoloji ve öğrenme psikolojisi temelli, birebir İngilizce eğitimi. Kozyatağı, Kadıköy.</p>
+    </div>
+    <div class="footer-col"><h4>Programlar</h4><ul>
+      <li><a href="professional.html">Professional English</a></li>
+      <li><a href="conversational.html">Conversational &amp; Fluency</a></li>
+      <li><a href="travel.html">Travel &amp; International</a></li>
+      <li><a href="fluency.html">Fluency &amp; Özgüven</a></li>
+      <li><a href="overseas.html">Yurt Dışı Eğitim</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>İletişim</h4><ul>
+      <li><a href="../contact.html">Demo Ders Ayarla</a></li>
+      <li><a href="https://wa.me/905318711374" target="_blank" rel="noopener">WhatsApp ile Yaz</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Cozy English. Tüm hakları saklıdır.</span><span>Kozyatağı, Kadıköy — İstanbul</span></div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+// Pain cards staggered entry
+(function(){
+  var items = document.querySelectorAll('.pain-item');
+  items.forEach(function(item, i){
+    setTimeout(function(){ item.classList.add('vis'); }, 500 + i * 220);
+  });
+})();
+
+// Scroll reveal
+(function(){
+  var els = document.querySelectorAll('.sr');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.08});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+// Sector tabs
+(function(){
+  document.querySelectorAll('.ph-stab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.ph-stab').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.ph-sc').forEach(function(c){ c.classList.remove('active'); });
+      btn.classList.add('active');
+      var t = document.getElementById('sc-' + btn.dataset.s);
+      if(t) t.classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>
